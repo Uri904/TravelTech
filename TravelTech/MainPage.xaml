@@ -77,7 +77,7 @@
                 </Frame>
 
                 <!-- Calendar Button -->
-                <Label Text="mondongo"
+                <Label Text="Hola que hace"
                        Grid.Column="2"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
