@@ -1,90 +1,95 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<!-- MainPage.xaml -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TravelTech.MainPage">
+             x:Class="TravelTech.MainPage"
+             BackgroundColor="#F5F5F5">
+    <Grid RowDefinitions="Auto,*,60">
 
-    <ContentPage.Content>
-        <Grid>
-            <!-- Main Content -->
-            <StackLayout Padding="20,10">
+        <!-- Top Menu Bar -->
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <Button Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
+                      VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
+                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+            </Grid>
+        </Frame>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+            <StackLayout Padding="15,10" Spacing="15">
+                <!-- Title -->
+                <Label Text="Mis viajes" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,10" />
+
                 <!-- Trip Card -->
-                <Frame CornerRadius="10" 
-                       Padding="15" 
-                       Margin="0,0,0,15"
-                       BackgroundColor="White"
-                       HasShadow="True">
-                    <StackLayout Spacing="5">
-                        <Label Text="Viaje a Francia"
-                               FontSize="16"
-                               TextColor="Black"/>
+                <Frame BackgroundColor="White" Padding="15" CornerRadius="5" HasShadow="True">
+                    <StackLayout Spacing="10">
+                        <Label Text="Viaje a Francia" TextColor="Black" FontSize="18" FontAttributes="Bold" />
 
-                        <Label Text="Fecha: 31/08/2021" 
-                               TextColor="#666666"
-                               FontSize="14"/>
+                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                            <Label Grid.Row="0" TextColor="Black" Grid.Column="0" Text="Fecha:" FontAttributes="Bold" />
+                            <Label Grid.Row="0" TextColor="Black" Grid.Column="1" Text="31/08/2021" />
 
-                        <Label Text="Presupuesto: $3500"
-                               TextColor="#666666"
-                               FontSize="14"/>
+                            <Label Grid.Row="1" TextColor="Black" Grid.Column="0" Text="Presupuesto:" FontAttributes="Bold" />
+                            <Label Grid.Row="1" TextColor="Black" Grid.Column="1" Text="$3500" />
 
-                        <Label Text="Actividades: Torre Eiffel"
-                               TextColor="#666666"
-                               FontSize="14"/>
+                            <Label Grid.Row="2" TextColor="Black" Grid.Column="0" Text="Actividades:" FontAttributes="Bold" />
+                            <Label Grid.Row="2" TextColor="Black" Grid.Column="1" Text="Torre Eiffel" />
+                        </Grid>
 
-                        <Button Text="VER DETALLES"
-                                BackgroundColor="#1a2f4b"
-                                TextColor="White"
-                                CornerRadius="5"
-                                Margin="0,10,0,0"
-                                HeightRequest="40"/>
+                        <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                            <Button Grid.Column="0" Text="VER DETALLES" 
+                                  BackgroundColor="#2A4B7C" TextColor="White" 
+                                  HeightRequest="40" CornerRadius="5" 
+                                  HorizontalOptions="Start" />
+
+                            <Button Grid.Column="1" 
+                                  BackgroundColor="Red" 
+                                  CornerRadius="15" 
+                                  WidthRequest="30" 
+                                  HeightRequest="30"
+                                  Padding="0"
+                                  HorizontalOptions="End"
+                                  VerticalOptions="Center"
+                                  Margin="0,0,10,0"
+                                  ImageSource="trash_icon.png" />
+                        </Grid>
                     </StackLayout>
                 </Frame>
+
+                <!-- Puedes añadir más tarjetas de viaje aquí -->
             </StackLayout>
+        </ScrollView>
 
-            <!-- Bottom Navigation Bar -->
-            <Grid RowSpacing="0" 
-                  VerticalOptions="End"
-                  HeightRequest="60"
-                  BackgroundColor="White">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+        <!-- Bottom Navigation Bar with Larger Circle Button -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto,*" BackgroundColor="#A5CAEF">
+            <!-- Botón de Inicio -->
+            <Button Grid.Column="0" 
+                  Text="🏠" FontSize="24" 
+                  BackgroundColor="Transparent" 
+                  HorizontalOptions="Center" VerticalOptions="Center" />
 
-                <!-- Home Button -->
-                <Label Text="Inicio"
-                       Grid.Column="0"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       TextColor="#666666"
-                       FontSize="12"/>
-
-                <!-- Add Button -->
-                <Frame Grid.Column="1"
-                       BackgroundColor="#3498db"
-                       CornerRadius="25"
-                       HeightRequest="50"
-                       WidthRequest="50"
-                       Margin="0,-25,0,0"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       Padding="0">
-                    <Label Text="+"
-                           TextColor="White"
-                           FontSize="30"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"/>
+            <!-- Contenedor para el botón flotante que sea más grande que la barra -->
+            <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+                <!-- El botón se coloca con un margen negativo para que sobresalga de la barra -->
+                <Frame BackgroundColor="#214B81" CornerRadius="30" 
+                      HeightRequest="60" WidthRequest="60" 
+                      Margin="0,-10,0,0"
+                      Padding="0" IsClippedToBounds="True" HasShadow="True"
+                      VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="+" TextColor="White" FontSize="36" 
+                          HorizontalOptions="Center" VerticalOptions="Center"
+                          HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                 </Frame>
-
-                <!-- Calendar Button -->
-                <Label Text="Hola que hace"
-                       Grid.Column="2"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"
-                       TextColor="#666666"
-                       FontSize="12"/>
             </Grid>
-        </Grid>
-    </ContentPage.Content>
 
+            <!-- Botón de Calendario -->
+            <Button Grid.Column="2" 
+                  Text="📅" FontSize="24" 
+                  BackgroundColor="Transparent" 
+                  HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Grid>
 </ContentPage>
