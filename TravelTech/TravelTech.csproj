@@ -22,4 +22,16 @@
     <Folder Include="Views\Gastos\" />
     <Folder Include="Views\Viajes\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\CalendarioMain.xaml.cs">
+      <DependentUpon>CalendarioMain.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\CalendarioMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
