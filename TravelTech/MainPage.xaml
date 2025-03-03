@@ -89,7 +89,8 @@
             <Button Grid.Column="2" 
                   Text="📅" FontSize="24" 
                   BackgroundColor="Transparent" 
-                  HorizontalOptions="Center" VerticalOptions="Center" />
+                  HorizontalOptions="Center" VerticalOptions="Center" 
+                    />
         </Grid>
     </Grid>
 </ContentPage>

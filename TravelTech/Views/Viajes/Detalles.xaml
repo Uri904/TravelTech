@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTech.Views.Viajes.Detalles"
+              BackgroundColor="#F5F5F5"
+             Title="Travel Tech">
+
+
+    <StackLayout>
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <Button Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                    WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
+                    VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
+                    WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+            </Grid>
+        </Frame>
+        <Label Text="Detalles del viaje"  FontSize="30"  Margin="15" TextColor="Black"  FontAttributes="Bold"/>
+        <Label Text="Nombre del viaje:" Margin="15,5,0,0" FontSize="18" TextColor="Black"/>
+
+        <Frame CornerRadius="5" BackgroundColor="LightGray"
+     HeightRequest="30" WidthRequest="250" Padding="5"
+     HorizontalOptions="Start" Margin="15,0,5,5">
+            <Entry BackgroundColor="LightGray" TextColor="Black"
+         FontSize="12" HeightRequest="20" WidthRequest="180"
+         HorizontalOptions="Fill" Margin="0,-9,0,0"/>
+        </Frame>
+        <Label Text="fecha de inicio:" Margin="15,0,0,0" FontSize="18" TextColor="Black"/>
+
+        <Frame CornerRadius="5" BackgroundColor="LightGray"
+    HeightRequest="30" WidthRequest="250" Padding="5"
+    HorizontalOptions="Start" Margin="15,0,5,5">
+            <DatePicker  HorizontalOptions="Fill" Margin="0,-9,0,0" />
+        </Frame>
+
+        <Label Text="fecha de fin:" Margin="15,0,0,0" FontSize="18" TextColor="Black"/>
+
+        <Frame CornerRadius="5" BackgroundColor="LightGray"
+   HeightRequest="30" WidthRequest="250" Padding="5"
+   HorizontalOptions="Start" Margin="15,0,5,5">
+            <DatePicker  HorizontalOptions="Fill" Margin="0,-9,0,0" />
+        </Frame>
+
+        <Label Text="Presupuesto:" Margin="15,0,0,0" FontSize="18" TextColor="Black"/>
+
+        <Frame CornerRadius="5" BackgroundColor="LightGray"
+   HeightRequest="30" WidthRequest="250" Padding="5"
+   HorizontalOptions="Start" Margin="15,0,5,5">
+            <Entry Keyboard="Numeric" Margin="0,-9,0,0"/>
+        </Frame>
+
+        <Button Margin="0,60,0,0" Text="Editar campos" CornerRadius="50" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="#90EE90" />
+        <Frame  Margin="0,70,0,0"  HeightRequest="55" HorizontalOptions="Start" WidthRequest="400"  BackgroundColor="#214B81" CornerRadius="20">
+            <StackLayout Orientation="Horizontal">
+                <Button  Text="📜detalles" FontSize="11" HorizontalOptions="Start" WidthRequest="77" BackgroundColor="#214B81" TextColor="White"/>
+                <Button  Text="📍destinos" FontSize="11" HorizontalOptions="Start" WidthRequest="77" BackgroundColor="#214B81" TextColor="White"/>
+                <Button  Text="🚴actividades" FontSize="8.6" HorizontalOptions="Start" WidthRequest="77" BackgroundColor="#214B81" TextColor="White"/>
+                <Button  Text="💴gastos" FontSize="11" HorizontalOptions="Start" WidthRequest="77" BackgroundColor="#214B81" TextColor="White"/>
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
