@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TravelTech.Views
+namespace TravelTech.Views.Viajes
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class Crear : ContentPage
     {
-        public Page1()
+        public Crear()
         {
             InitializeComponent();
         }
