@@ -56,12 +56,12 @@
             <Button Grid.Row="10" Text="Editar campos" CornerRadius="50" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="#90EE90" Margin="0,60,0,0" />
 
             <!-- Menú inferior -->
-            <Frame Grid.Row="11" HeightRequest="55" HorizontalOptions="Start" WidthRequest="400" BackgroundColor="#214B81" CornerRadius="20" Margin="0,70,0,0">
-                <Grid ColumnDefinitions="*, *, *, *" Padding="0">
-                    <Button Grid.Column="0" Text="📜 detalles" FontSize="11" BackgroundColor="#214B81" TextColor="White" />
-                    <Button Grid.Column="1" Text="📍 destinos" FontSize="11" BackgroundColor="#214B81" TextColor="White" />
-                    <Button Grid.Column="2" Text="🚴 actividades" FontSize="8.6" BackgroundColor="#214B81" TextColor="White" />
-                    <Button Grid.Column="3" Text="💴 gastos" FontSize="11" BackgroundColor="#214B81" TextColor="White" />
+            <Frame Grid.Row="11" HeightRequest="55" HorizontalOptions="Fill" BackgroundColor="#214B81" CornerRadius="20" Margin="0,70,0,0">
+                <Grid ColumnDefinitions="*, *, *, *" Padding="10">
+                    <Button Grid.Column="0" Text="📜 detalles" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5"/>
+                    <Button Grid.Column="1" Text="📍 destinos" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5"/>
+                    <Button Grid.Column="2" Text="🚴 actividades" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5" />
+                    <Button Grid.Column="3" Text="💴 gastos" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5"/>
                 </Grid>
             </Frame>
 
