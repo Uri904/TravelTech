@@ -16,5 +16,12 @@ namespace TravelTech.Views.Viajes
         {
             InitializeComponent();
         }
+
+        //Evento btn_Regresar
+        private async void btn_Regresar(object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();// Regresa a la página anterior
+        }
+
     }
 }

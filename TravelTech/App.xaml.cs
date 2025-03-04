@@ -1,4 +1,5 @@
 ﻿using System;
+using TravelTech;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,9 @@ namespace TravelTech
         public App()
         {
             InitializeComponent();
+            MainPage = new NavigationPage(new MainPage()); // Permite la navegación
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
         }
 
         protected override void OnStart()
