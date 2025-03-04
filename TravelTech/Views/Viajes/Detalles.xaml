@@ -10,7 +10,6 @@
               ColumnDefinitions="*"
               Padding="0">
 
-            <!-- Header -->
             <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
                 <Grid ColumnDefinitions="Auto, *, Auto" Padding="10,5" HeightRequest="50">
                     <Button Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
