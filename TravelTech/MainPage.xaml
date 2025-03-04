@@ -85,7 +85,7 @@
                 </Frame>
             </Grid>
 
-            <!-- Botón de Calendario -->
+            
             <Button Grid.Column="2" 
                   Text="📅" FontSize="24" 
                   BackgroundColor="Transparent" 
