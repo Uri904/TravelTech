@@ -21,7 +21,6 @@
                 </Grid>
             </Frame>
 
-            <!-- Detalles del viaje -->
             <Label Grid.Row="1" Text="Detalles del viaje" FontSize="30" Margin="15" TextColor="Black" FontAttributes="Bold" />
 
             <!-- Nombre del viaje -->
