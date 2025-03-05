@@ -55,15 +55,28 @@
             <!-- Botón de editar campos -->
             <Button Grid.Row="10" Text="Editar campos" CornerRadius="50" HorizontalOptions="Center" WidthRequest="300" BackgroundColor="#90EE90" Margin="0,60,0,0" />
 
+          
+
             <!-- Menú inferior -->
-            <Frame Grid.Row="11" HeightRequest="55" HorizontalOptions="Fill" BackgroundColor="#214B81" CornerRadius="20" Margin="0,70,0,0">
-                <Grid ColumnDefinitions="*, *, *, *" Padding="10">
-                    <Button Grid.Column="0" Text="📜 detalles" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5"/>
-                    <Button Grid.Column="1" Text="📍 destinos" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5"/>
-                    <Button Grid.Column="2" Text="🚴 actividades" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5" />
-                    <Button Grid.Column="3" Text="💴 gastos" FontSize="11" BackgroundColor="Transparent" TextColor="White" Margin="-5"/>
+            <Frame Grid.Row="11" HeightRequest="60" BackgroundColor="#214B81"
+       HorizontalOptions="Fill" CornerRadius="20" Padding="5">
+                <Grid ColumnDefinitions="*,*,*,*" Padding="10">
+                    <Button Grid.Column="0" Text="📜 Detalles" FontSize="11" 
+                BackgroundColor="Transparent" TextColor="White" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                    <Button Grid.Column="1" Text="📍 Destinos" FontSize="11" 
+                BackgroundColor="Transparent" TextColor="White" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                    <Button Grid.Column="2" Text="🚴 Actividades" FontSize="10" 
+                BackgroundColor="Transparent" TextColor="White" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                    <Button Grid.Column="3" Text="💴 Gastos" FontSize="11" 
+                BackgroundColor="Transparent" TextColor="White" 
+                HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
                 </Grid>
             </Frame>
+
+
 
         </Grid>
     </ScrollView>
