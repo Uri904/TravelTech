@@ -17,7 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\ActividadesDestinos\Agregar_Actividad.xaml">
+    <EmbeddedResource Update="Views\ActividadesDestinos\CrearActividad.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ActividadesDestinos\VerActividad.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CalendarioIn.xaml">

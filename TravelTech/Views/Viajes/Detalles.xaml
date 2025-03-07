@@ -84,13 +84,14 @@
 
 
             <Button Grid.Column="2" 
-                Text="🚴🏻‍♀Actividades" 
-                FontSize="11" 
-                TextColor="White" 
-                BackgroundColor="#A5CAEF" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center" 
-                />
+                    Text="🚴🏻‍♀Actividades" 
+                    FontSize="11" 
+                    TextColor="White" 
+                    BackgroundColor="#A5CAEF" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="btn_Actividades"/>
+            
             <Button Grid.Column="3" 
                 Text="💵Gastos" 
                 TextColor="White" 

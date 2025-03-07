@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTech.Views.ActividadesDestinos.VerActividad"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F5F5F5"
+             Title="Travel Tech">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!-- Top Menu Bar -->
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" WidthRequest="40" HeightRequest="40"/>
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" WidthRequest="40" HeightRequest="40"/>
+            </Grid>
+        </Frame>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="20,15">
+                <Label Text="Actividades" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15"/>
+
+                <!-- Actividad: Subir a la Torre Eiffel -->
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <Button Text="Subir a la Torre Eiffel ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
+                                Clicked="ToggleActividad1" x:Name="btnActividad1"/>
+
+                        <StackLayout x:Name="contentActividad1" IsVisible="False">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Prioridad: " FontSize="16"/>
+                                <Label Text="Alta" FontSize="16" FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <Label Text="Notas:" FontSize="16"/>
+
+                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
+                                <Label Text="De noche es mejor." TextColor="#666"/>
+                            </Frame>
+
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5"/>
+                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Actividad: Recorrer Montmartre -->
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <Button Text="Recorrer Montmartre ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
+                                Clicked="ToggleActividad2" x:Name="btnActividad2"/>
+
+                        <StackLayout x:Name="contentActividad2" IsVisible="False">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Prioridad: " FontSize="16"/>
+                                <Label Text="Media" FontSize="16" FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <Label Text="Notas:" FontSize="16"/>
+
+                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
+                                <Label Text="Ir al mirador de la torre Montmartre." TextColor="#666"/>
+                            </Frame>
+
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5"/>
+                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón Agregar -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,500,0,0">
+                    <Button Text="Ver recordatorios" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50"/>
+                    <Button Text="Agregar actividad" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_CrearActividad"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
+            <Button Grid.Column="0" Text="Detalles" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White"/>
+            <Button Grid.Column="1" Text="Destinos" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White"/>
+            <Button Grid.Column="2" Text="Actividades" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White"/>
+            <Button Grid.Column="3" Text="Gastos" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White"/>
+        </Grid>
+    </Grid>
+</ContentPage>

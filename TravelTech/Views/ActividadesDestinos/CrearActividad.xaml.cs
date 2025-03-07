@@ -10,11 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace TravelTech.Views.ActividadesDestinos
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Agregar_Actividad : ContentView
+	public partial class CrearActividad : ContentPage
 	{
-		public Agregar_Actividad ()
+		public CrearActividad ()
 		{
 			InitializeComponent ();
 		}
-	}
+
+        //Evento del boton btn_Regresar
+        private async void btn_Regresar(object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();// Regresa a la página anterior
+        }
+    }
 }
