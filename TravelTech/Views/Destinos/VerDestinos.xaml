@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTech.Views.Destinos.VerDestinos"
+             BackgroundColor="#F5F5F5"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!-- Top Menu Bar -->
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                        WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
+                        WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+            </Grid>
+        </Frame>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+            <StackLayout Padding="20,15" Spacing="15">
+                <!-- Title -->
+                <Label Text="Destinos" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
+
+                <!-- Lista de Destinos -->
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <Button Text="París ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent"
+                                Clicked="ToggleParis" x:Name="btnParis"/>
+                        <StackLayout x:Name="contentParis" IsVisible="False">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Prioridad: " FontSize="16" />
+                                <Label Text="Alta" FontSize="16" FontAttributes="Bold" />
+                            </StackLayout>
+                            <Label Text="Notas:" FontSize="16" />
+                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
+                                <Label Text="Buscar un hotel cerca del centro." TextColor="#666" />
+                            </Frame>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" />
+                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <Button Text="Recorrer Montmartre ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent"
+                                Clicked="ToggleMontmartre" x:Name="btnMontmartre"/>
+                        <StackLayout x:Name="contentMontmartre" IsVisible="False">
+                            <Label Text="Explorar los rincones de Montmartre y disfrutar de sus vistas." FontSize="16" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón Agregar -->
+                <Button Text="Agregar destino" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_AgregarDestino"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
+            <Button Grid.Column="0" Text="📜Detalles" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"/>
+            <Button Grid.Column="1" Text="📍Destino" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Grid.Column="2" Text="🚴🏻‍♀Actividades" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Grid.Column="3" Text="💵Gastos" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Grid>
+</ContentPage>
+

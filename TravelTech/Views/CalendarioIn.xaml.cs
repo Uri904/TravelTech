@@ -95,5 +95,11 @@ namespace TravelTech.Views
             _currentDate = _currentDate.AddMonths(1);
             UpdateCalendar();
         }
+
+        //Evento btn_MisViajes
+        private async void btn_MisViajes(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
     }
 }

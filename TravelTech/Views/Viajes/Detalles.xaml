@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TravelTech.Views.Viajes.Detalles"
              BackgroundColor="#F5F5F5"
-             Title="Travel Tech">
+             Title="Travel Tech"
+             NavigationPage.HasNavigationBar="False">
 
     <Grid RowDefinitions="Auto,*,60">
 
@@ -27,26 +28,27 @@
                 
                 <Label Text="Nombre del viaje:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Placeholder="" PlaceholderColor="#CCCCCC" HeightRequest="40" />
+                    <Entry Placeholder="Viaje a Francia" PlaceholderColor="#CCCCCC" HeightRequest="40" IsEnabled="False"/>
                 </Frame>
 
                 <Label Text="Fecha de inicio:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <DatePicker />
+                    <DatePicker IsEnabled="False"/>
                 </Frame>
                 <Label Text="Fecha de fin:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <DatePicker />
+                    <DatePicker IsEnabled="False"/>
                 </Frame>
                 <Label Text="Presupuesto" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Placeholder="" PlaceholderColor="#CCCCCC" HeightRequest="40" Keyboard="Numeric"/>
+                    <Entry Placeholder="$3500" PlaceholderColor="#CCCCCC" HeightRequest="40" Keyboard="Numeric" IsEnabled="False"/>
                 </Frame>
 
-                <Button Text="Agregar Actividad" 
-          BackgroundColor="#90EE90" TextColor="White" 
-          CornerRadius="5" HeightRequest="50"
-          Margin="0,40,0,30" />
+                <Button Text="Editar Campos" 
+                        BackgroundColor="#64AB81" TextColor="White" 
+                        CornerRadius="10" HeightRequest="50"
+                        Margin="0,40,0,30" 
+                        Clicked="btn_EditarDetalles"/>
             
 
 
@@ -55,15 +57,14 @@
 
         <!-- Bottom Navigation Bar with Larger Circle Button -->
         <Grid Grid.Row="2" ColumnDefinitions="*,Auto,*" BackgroundColor="#A5CAEF">
+            
             <!-- Botón de Inicio -->
             <Button Grid.Column="0" 
-              Text="📜Detalles" FontSize="11" 
-             BackgroundColor="#A5CAEF"
-                                            TextColor="White" 
-
-                    HorizontalOptions="Center" VerticalOptions="Center"
-                    
-                    />
+                    Text="📜Detalles" FontSize="11" 
+                    BackgroundColor="#A5CAEF"
+                    TextColor="White" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
 
             <!-- Contenedor para el botón flotante que sea más grande que la barra -->
             <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
@@ -77,26 +78,22 @@
                         Margin="5,4,5,5"
                         HorizontalOptions="Center" 
                         VerticalOptions="Center"
-                       />
+                        Clicked="btn_Destino"/>
                 
             </Grid>
 
 
             <Button Grid.Column="2" 
-                Text="🚴🏻‍♀
-Actividades" 
+                Text="🚴🏻‍♀Actividades" 
                 FontSize="11" 
-                                            TextColor="White" 
-
+                TextColor="White" 
                 BackgroundColor="#A5CAEF" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center" 
                 />
             <Button Grid.Column="3" 
-                Text="💵
-Gastos" 
-                                            TextColor="White" 
-
+                Text="💵Gastos" 
+                TextColor="White" 
                 FontSize="11" 
                 BackgroundColor="#A5CAEF"
                 HorizontalOptions="Center"

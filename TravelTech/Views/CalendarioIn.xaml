@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TravelTech.Views.CalendarioIn"
-             BackgroundColor="#F5F5F5">
+             BackgroundColor="#F5F5F5"
+             NavigationPage.HasNavigationBar="False">
     <Grid RowDefinitions="Auto,*,60">
 
         <!-- Top Menu Bar -->
@@ -99,7 +100,8 @@
 
         <!-- Bottom Navigation Bar -->
         <Grid Grid.Row="2" ColumnDefinitions="*,Auto,*" BackgroundColor="#A5CAEF">
-            <Button Grid.Column="0" Text="🏠" FontSize="24" BackgroundColor="Transparent" />
+            <Button Grid.Column="0" Text="🏠" FontSize="24" BackgroundColor="Transparent" Clicked="btn_MisViajes" />
+            
             <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
                 <Frame BackgroundColor="#214B81" CornerRadius="30" 
                        HeightRequest="60" WidthRequest="60" 
@@ -110,6 +112,7 @@
                            HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                 </Frame>
             </Grid>
+            
             <Button Grid.Column="2" Text="📅" FontSize="24" BackgroundColor="Transparent" />
         </Grid>
     </Grid>

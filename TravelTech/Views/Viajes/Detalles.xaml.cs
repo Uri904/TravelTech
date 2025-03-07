@@ -16,5 +16,17 @@ namespace TravelTech.Views.Viajes
         {
             InitializeComponent();
         }
+        //Evento btn_VerDetalles
+        private async void btn_Destino(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Destinos.VerDestinos());
+        }
+
+        //Evento btn_EditarDetalles
+        private async void btn_EditarDetalles(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Viajes.EditarDetalles());
+        }
+
     }
 }

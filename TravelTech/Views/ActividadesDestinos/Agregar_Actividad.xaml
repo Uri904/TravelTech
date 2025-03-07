@@ -46,9 +46,9 @@
 
 
                 <Button Text="Agregar Actividad" 
-          BackgroundColor="#90EE90" TextColor="White" 
-          CornerRadius="5" HeightRequest="50"
-          Margin="0,80,0,30" />
+                        BackgroundColor="#90EE90" TextColor="White" 
+                        CornerRadius="5" HeightRequest="50"
+                        Margin="0,80,0,30" />
             </StackLayout>
         </ScrollView>
 
