@@ -56,6 +56,10 @@ namespace TravelTech.Views.Destinos
             contentMontmartre.IsVisible = !contentMontmartre.IsVisible;
             btnMontmartre.Text = contentMontmartre.IsVisible ? "Recorrer Montmartre ▲" : "Recorrer Montmartre ▼";
         }
+        private async void BtnEditar(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Destinos.ActualizarDestino());
+        }
 
 
     }

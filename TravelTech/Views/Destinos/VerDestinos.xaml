@@ -44,7 +44,7 @@
                             </Frame>
                             
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
-                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" />
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"/>
                                 <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
                             </StackLayout>
 
@@ -71,7 +71,7 @@
                             </Frame>
                             
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
-                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" />
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"/>
                                 <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
                             </StackLayout>
                             

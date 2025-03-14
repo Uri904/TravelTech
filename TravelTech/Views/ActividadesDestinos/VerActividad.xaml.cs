@@ -54,5 +54,10 @@ namespace TravelTech.Views.ActividadesDestinos
             btnActividad2.Text = contentActividad2.IsVisible ? "Recorrer Montmartre ▲" : "Recorrer Montmartre ▼";
         }
 
+        private async void btnEditar(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ActividadesDestinos.ActualizarActividad());
+        }
+
     }
 }
