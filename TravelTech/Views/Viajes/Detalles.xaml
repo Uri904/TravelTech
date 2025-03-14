@@ -99,6 +99,7 @@
                 BackgroundColor="#A5CAEF"
                 HorizontalOptions="Center"
                 VerticalOptions="Center" 
+                    Clicked="btn_Gastos"
                 />
         </Grid>
     </Grid>

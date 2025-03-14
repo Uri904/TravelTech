@@ -35,6 +35,12 @@ namespace TravelTech.Views.Viajes
             await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
         }
 
+        //Evento btn_Gastos
+        private async void btn_Gastos(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Gastos.VerGastos());
+        }
+
         //Evento btn_EditarDetalles
         private async void btn_EditarDetalles(object sender, System.EventArgs e)
         {

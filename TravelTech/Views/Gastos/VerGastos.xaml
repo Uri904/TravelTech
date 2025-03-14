@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTech.Views.Gastos.VerGastos"
+             BackgroundColor="#F5F5F5"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!-- Top Menu Bar -->
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Home"/>
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black"/>
+            </Grid>
+        </Frame>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+            <StackLayout Padding="15,10" Spacing="15">
+                <Label Text="Gastos" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,10"/>
+
+                <!-- Presupuesto -->
+                <Frame Padding="10" CornerRadius="10" BackgroundColor="White" HasShadow="True">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Presupuesto:" FontSize="16" FontAttributes="Bold"/>
+                        <Label Text="$3500" FontSize="16" TextColor="Black" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Detalle de Gastos -->
+                <Frame Padding="10" CornerRadius="10" BackgroundColor="White" HasShadow="True">
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                        <StackLayout Grid.Row="0" Grid.Column="0">
+                            <Label Text="Tipo: Hospedaje" FontSize="16"/>
+                            <Label Text="Fecha: 01/09/2021" FontSize="14" TextColor="Gray"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="10">
+                            <Button Text="🟢 Actualizar" BackgroundColor="Transparent" FontSize="14"/>
+                            <Button Text="🔴 Eliminar" BackgroundColor="Transparent" FontSize="14"/>
+                        </StackLayout>
+                        <Label Text="$1500" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"/>
+                    </Grid>
+                </Frame>
+
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="Gastos totales:" FontSize="16"/>
+                    <Label Text="$1500" FontSize="16" Grid.Column="1"/>
+                </Grid>
+
+                <Frame Padding="5" CornerRadius="5" BackgroundColor="White" BorderColor="#DDDDDD">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Presupuesto restante:" FontSize="16"/>
+                        <Label Text="$2000" FontSize="16" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <Button Text="AGREGAR GASTO" BackgroundColor="#ADD8E6" TextColor="Black" CornerRadius="10" HeightRequest="50"/>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
+            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_Detalles"/>
+            <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_Destinos"/>
+            <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_Actividades"/>
+            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White"/>
+        </Grid>
+    </Grid>
+</ContentPage>

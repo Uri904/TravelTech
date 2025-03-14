@@ -37,6 +37,12 @@ namespace TravelTech.Views.Destinos
             await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
         }
 
+        //Evento del botón btn_VerGastos
+        private async void btn_VerGastos(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Gastos.VerGastos());
+        }
+
         // Evento del btn_Home
         private async void btn_Home(object sender, System.EventArgs e)
         {

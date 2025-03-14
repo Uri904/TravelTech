@@ -87,7 +87,7 @@
             <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_VerDetalle"/>
             <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_VerDestino"/>
             <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White"/>
-            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White"/>
+            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_VerGastos"/>
         </Grid>
     </Grid>
 </ContentPage>
