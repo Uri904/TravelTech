@@ -101,5 +101,11 @@ namespace TravelTech.Views
         {
             await Navigation.PushAsync(new MainPage());
         }
+
+        //Evento btn_Crear
+        private async void btn_CrearViaje(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Viajes.Crear());
+        }
     }
 }

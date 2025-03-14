@@ -31,6 +31,18 @@ namespace TravelTech.Views.Destinos
             await Navigation.PushAsync(new Viajes.Detalles());
         }
 
+        // Evento del Boton Actividades
+        private async void btn_Actividades(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
+        }
+
+        // Evento del btn_Home
+        private async void btn_Home(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
+
 
         //Evento de los botones ToggleParis y ToggleMontmartre cada uno se encuentra en un STACKLAYOUD cada uno
         private void ToggleParis(object sender, EventArgs e)

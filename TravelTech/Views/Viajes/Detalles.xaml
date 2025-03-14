@@ -11,7 +11,7 @@
         <!-- Top Menu Bar -->
         <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
             <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                <Button Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                <Button Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Home"
                   WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
                 <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
                   VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
@@ -60,7 +60,7 @@
             
             <!-- Botón de Inicio -->
             <Button Grid.Column="0" 
-                    Text="📜Detalles" FontSize="11" 
+                    Text="📜" FontSize="30" 
                     BackgroundColor="#A5CAEF"
                     TextColor="White" 
                     HorizontalOptions="Center" 
@@ -71,10 +71,10 @@
                 <!-- El botón se coloca con un margen negativo para que sobresalga de la barra -->
 
 
-                <Button Text="📍Destino" 
+                <Button Text="📍" 
                         BackgroundColor="#A5CAEF"
                         TextColor="White" 
-                        FontSize="11"
+                        FontSize="30"
                         Margin="5,4,5,5"
                         HorizontalOptions="Center" 
                         VerticalOptions="Center"
@@ -84,8 +84,8 @@
 
 
             <Button Grid.Column="2" 
-                    Text="🚴🏻‍♀Actividades" 
-                    FontSize="11" 
+                    Text="🚴🏻‍" 
+                    FontSize="30" 
                     TextColor="White" 
                     BackgroundColor="#A5CAEF" 
                     HorizontalOptions="Center"
@@ -93,9 +93,9 @@
                     Clicked="btn_Actividades"/>
             
             <Button Grid.Column="3" 
-                Text="💵Gastos" 
+                Text="💵" 
                 TextColor="White" 
-                FontSize="11" 
+                FontSize="30" 
                 BackgroundColor="#A5CAEF"
                 HorizontalOptions="Center"
                 VerticalOptions="Center" 

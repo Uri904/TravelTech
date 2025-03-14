@@ -9,7 +9,7 @@
         <!-- Top Menu Bar -->
         <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
             <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Home"
                         WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
                 <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
                        VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
@@ -87,10 +87,10 @@
 
         <!-- Bottom Navigation Bar -->
         <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
-            <Button Grid.Column="0" Text="📜Detalles" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"/>
-            <Button Grid.Column="1" Text="📍Destino" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Button Grid.Column="2" Text="🚴🏻‍♀Actividades" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Button Grid.Column="3" Text="💵Gastos" FontSize="11" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"/>
+            <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Actividades"/>
+            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
         </Grid>
     </Grid>
 </ContentPage>

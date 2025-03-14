@@ -16,6 +16,13 @@ namespace TravelTech.Views.Viajes
         {
             InitializeComponent();
         }
+
+        //Evento btn_Home
+        private async void btn_Home(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
+
         //Evento btn_Destino
         private async void btn_Destino(object sender, System.EventArgs e)
         {

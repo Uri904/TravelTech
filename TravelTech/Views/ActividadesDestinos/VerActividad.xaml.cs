@@ -17,10 +17,29 @@ namespace TravelTech.Views.ActividadesDestinos
 			InitializeComponent ();
 		}
 
+        //Evento del botón btn_VerDetalle
+        private async void btn_VerDetalle(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Viajes.Detalles());
+        }
+
+        //Evento del botón btn_VerDestino
+        private async void btn_VerDestino(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Destinos.VerDestinos());
+        }
+
+
         //Evento del botón btn_CrearActividad
         private async void btn_CrearActividad(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new ActividadesDestinos.CrearActividad());
+        }
+
+        //Evento del botón btn_Home
+        private async void btn_Home(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
         }
 
         private void ToggleActividad1(object sender, System.EventArgs e)
