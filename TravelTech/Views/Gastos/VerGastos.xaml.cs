@@ -39,5 +39,14 @@ namespace TravelTech.Views.Gastos
         {
             await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
         }
+
+        private async void BtnAgregar(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Gastos.AgregarGasto());
+        }
+        private async void BtnActualizar(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.Gastos.ActualizarGasto());
+        }
     }
 }

@@ -37,7 +37,7 @@
                             <Label Text="Fecha: 01/09/2021" FontSize="14" TextColor="Gray"/>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="10">
-                            <Button Text="🟢 Actualizar" BackgroundColor="Transparent" FontSize="14"/>
+                            <Button Text="🟢 Actualizar" BackgroundColor="Transparent" FontSize="14" Clicked="BtnActualizar"/>
                             <Button Text="🔴 Eliminar" BackgroundColor="Transparent" FontSize="14"/>
                         </StackLayout>
                         <Label Text="$1500" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"/>
@@ -56,7 +56,7 @@
                     </Grid>
                 </Frame>
 
-                <Button Text="AGREGAR GASTO" BackgroundColor="#ADD8E6" TextColor="Black" CornerRadius="10" HeightRequest="50"/>
+                <Button Text="AGREGAR GASTO" BackgroundColor="#ADD8E6" TextColor="Black" CornerRadius="10" HeightRequest="50" Clicked="BtnAgregar"/>
             </StackLayout>
         </ScrollView>
 
