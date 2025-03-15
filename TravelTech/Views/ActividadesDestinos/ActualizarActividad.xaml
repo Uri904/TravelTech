@@ -10,7 +10,7 @@
             <!-- Top Menu Bar -->
             <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
                 <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                    <Button Grid.Column="0" Text="←" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                    <Button Grid.Column="0" Text="←" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Regresar"
                       WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
                     <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
@@ -49,10 +49,10 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <!-- Submit Button -->
                         <Button Text="Cancelar" 
-                        BackgroundColor="Red" TextColor="White" 
-                        CornerRadius="5" HeightRequest="50"
-                        Margin="0,20,0,30" 
-                                Clicked="BtnCancelar"
+                                BackgroundColor="Red" TextColor="White" 
+                                CornerRadius="5" HeightRequest="50"
+                                Margin="0,20,0,30" 
+                                Clicked="btn_Cancelar"
                         />
                         <!-- Submit Button -->
                         <Button Text="Actualizar" 

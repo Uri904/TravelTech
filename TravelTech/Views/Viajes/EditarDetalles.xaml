@@ -52,7 +52,7 @@
 
                 <!-- Botones -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="15" Margin="0,20,0,0">
-                    <Button Text="Cancelar" BackgroundColor="#E74C3C" TextColor="White"
+                    <Button Text="Cancelar" BackgroundColor="#E74C3C" TextColor="White" Clicked="btn_Cancelar"
                             CornerRadius="10" HeightRequest="50" HorizontalOptions="FillAndExpand"/>
                     <Button Text="Actualizar" BackgroundColor="#64AB81" TextColor="White"
                             CornerRadius="10" HeightRequest="50" HorizontalOptions="FillAndExpand"/>

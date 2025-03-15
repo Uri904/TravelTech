@@ -25,6 +25,12 @@ namespace TravelTech.Views.Viajes
             await Navigation.PopAsync();// Regresa a la página anterior
         }
 
+        //Evento del btn_Cancelar
+        private async void btn_Cancelar(object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();// Regresa a la página anterior
+        }
+
 
 
 
