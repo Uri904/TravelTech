@@ -96,6 +96,16 @@ namespace TravelTech.Views
             UpdateCalendar();
         }
 
+
+
+        // -- Navegación -- //
+
+        //Evento btn_Home
+        private async void btn_Home(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
+
         //Evento btn_MisViajes
         private async void btn_MisViajes(object sender, System.EventArgs e)
         {
@@ -107,5 +117,11 @@ namespace TravelTech.Views
         {
             await Navigation.PushAsync(new Viajes.Crear());
         }
+
+
+
+
+
+
     }
 }

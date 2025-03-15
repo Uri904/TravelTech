@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTech.Views.ActividadesDestinos.VerRecordatorios"
+             BackgroundColor="#F5F5F5"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="Auto,*">
+        <!-- Top Menu Bar -->
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <Button Grid.Column="0" Text="←" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Regresar"
+                        WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
+                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
+                        WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+            </Grid>
+        </Frame>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+            <StackLayout Padding="20,15" Spacing="15">
+                <!-- Title -->
+                <Label Text="Recordatorios" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
+
+                <!-- Recordatorio 1 -->
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <Button Text="Subir a la Torre Eiffel ▲" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000" Clicked="ToggleRecordatorio1"/>
+
+                        <StackLayout x:Name="contentRecordatorio1" IsVisible="False">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Importancia: " FontSize="16" TextColor="#000"/>
+                                <RadioButton Content="Alta" IsChecked="True"/>
+                            </StackLayout>
+
+                            <Label Text="Mensaje:" FontSize="16" TextColor="#000"/>
+                            <Entry Text="Preparar mochila." IsReadOnly="True" BackgroundColor="#EDEDED"/>
+
+                            <Label Text="Fecha:" FontSize="16" TextColor="#000"/>
+                            <Entry Text="01/08/2021" IsReadOnly="True" BackgroundColor="#EDEDED"/>
+
+                            <Label Text="Estado:" FontSize="16" TextColor="#000"/>
+                            <Entry Text="Completado" IsReadOnly="True" BackgroundColor="#EDEDED"/>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"/>
+                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Recordatorio 2 -->
+                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                    <StackLayout>
+                        <Button Text="Recorrer Montmartre ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000" Clicked="ToggleRecordatorio2"/>
+
+                        <StackLayout x:Name="contentRecordatorio2" IsVisible="False">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Importancia: " FontSize="16" TextColor="#000"/>
+                                <RadioButton Content="Media" IsChecked="True"/>
+                            </StackLayout>
+
+                            <Label Text="Mensaje:" FontSize="16" TextColor="#000"/>
+                            <Entry Text="Ir al mirador de la torre Montmartre." IsReadOnly="True" BackgroundColor="#EDEDED"/>
+
+                            <Label Text="Fecha:" FontSize="16" TextColor="#000"/>
+                            <Entry Text="02/08/2021" IsReadOnly="True" BackgroundColor="#EDEDED"/>
+
+                            <Label Text="Estado:" FontSize="16" TextColor="#000"/>
+                            <Entry Text="Pendiente" IsReadOnly="True" BackgroundColor="#EDEDED"/>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"/>
+                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Botón Agregar Recordatorio -->
+                <Button Text="Agregar Recordatorio" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_AgregarRecordatorio"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

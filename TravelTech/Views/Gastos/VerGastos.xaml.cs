@@ -16,6 +16,10 @@ namespace TravelTech.Views.Gastos
         {
             InitializeComponent();
         }
+
+
+        // -- Navegación -- //
+
         // Evento del Boton btn_Home
         private async void btn_Home(object sender, System.EventArgs e)
         {
@@ -40,13 +44,22 @@ namespace TravelTech.Views.Gastos
             await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
         }
 
+        // Evento del Boton BtnAgregar
         private async void BtnAgregar(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new Views.Gastos.AgregarGasto());
         }
+
+        // Evento del Boton BtnActualizar
         private async void BtnActualizar(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new Views.Gastos.ActualizarGasto());
         }
+
+
+
+
+
+
     }
 }

@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TravelTech.Views.Gastos.AgregarGasto">
+             x:Class="TravelTech.Views.Gastos.AgregarGasto"
+             BackgroundColor="#F5F5F5"
+             NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.Content>
         <Grid RowDefinitions="Auto,*">
             <!-- Top Menu Bar -->
             <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
                 <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                    <Button Grid.Column="0" Text="←" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
+                    <Button Grid.Column="0" Text="←" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Regresar"
                   WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
                     <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
                   VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
@@ -47,7 +50,7 @@
                                 Clicked="BtnCancelar"
                     />
                         <!-- Submit Button -->
-                        <Button Text="#ADD8E6" 
+                        <Button Text="Agregar" 
                     BackgroundColor="#A5D6A7" TextColor="White" 
                     CornerRadius="5" HeightRequest="50"
                     Margin="80,20,0,30" 

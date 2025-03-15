@@ -17,6 +17,8 @@ namespace TravelTech
             InitializeComponent();
         }
 
+        // -- Navegación -- //
+
         //Evento btn_VerDetalles
         private async void btn_VerDetalles(object sender, System.EventArgs e)
         {
@@ -34,5 +36,8 @@ namespace TravelTech
         {
             await Navigation.PushAsync(new Crear());
         }
+
+
+
     }
 }

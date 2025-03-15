@@ -16,9 +16,17 @@ namespace TravelTech.Views.ActividadesDestinos
 		{
 			InitializeComponent ();
 		}
+
+
+		// -- Navegación -- //
+
+		//Evento boton btn_Cancelar
         private async void BtnCancelar(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new Views.ActividadesDestinos.VerActividad());
         }
+
+
+
     }
 }

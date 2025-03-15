@@ -17,6 +17,8 @@ namespace TravelTech.Views.ActividadesDestinos
 			InitializeComponent ();
 		}
 
+        // -- Navegación -- //
+
         //Evento del botón btn_VerDetalle
         private async void btn_VerDetalle(object sender, System.EventArgs e)
         {
@@ -47,6 +49,21 @@ namespace TravelTech.Views.ActividadesDestinos
             await Navigation.PushAsync(new MainPage());
         }
 
+        //Evento del botón btnEditar
+        private async void btnEditar(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ActividadesDestinos.ActualizarActividad());
+        }
+
+        //Evento del botón btn_VerRecordatorios
+        private async void btn_VerRecordatorios(object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Views.ActividadesDestinos.VerRecordatorios());
+        }
+
+
+        // -- Despliege de Paginas -- //
+
         private void ToggleActividad1(object sender, System.EventArgs e)
         {
             contentActividad1.IsVisible = !contentActividad1.IsVisible;
@@ -59,10 +76,7 @@ namespace TravelTech.Views.ActividadesDestinos
             btnActividad2.Text = contentActividad2.IsVisible ? "Recorrer Montmartre ▲" : "Recorrer Montmartre ▼";
         }
 
-        private async void btnEditar(object sender, System.EventArgs e)
-        {
-            await Navigation.PushAsync(new Views.ActividadesDestinos.ActualizarActividad());
-        }
+
 
     }
 }

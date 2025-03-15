@@ -75,8 +75,8 @@
                 </Frame>
 
                 <!-- Botón Agregar -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,500,0,0">
-                    <Button Text="Ver recordatorios" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+                    <Button Text="Ver recordatorios" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_VerRecordatorios"/>
                     <Button Text="Agregar actividad" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_CrearActividad"/>
                 </StackLayout>
             </StackLayout>

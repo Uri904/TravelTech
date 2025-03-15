@@ -17,6 +17,9 @@ namespace TravelTech.Views.Viajes
             InitializeComponent();
         }
 
+
+        // -- Navegación -- //
+
         //Evento btn_Home
         private async void btn_Home(object sender, System.EventArgs e)
         {
@@ -46,6 +49,11 @@ namespace TravelTech.Views.Viajes
         {
             await Navigation.PushAsync(new Viajes.EditarDetalles());
         }
+
+
+
+
+
 
     }
 }

@@ -16,8 +16,10 @@ namespace TravelTech.Views.Destinos
         {
             InitializeComponent();
         }
-        
-        
+
+
+        // -- Navegación -- //
+
         // Evento del Boton Agregar Destino
         private async void btn_AgregarDestino(object sender, System.EventArgs e)
         {
@@ -57,6 +59,9 @@ namespace TravelTech.Views.Destinos
             btnParis.Text = contentParis.IsVisible ? "París ▲" : "París ▼";
         }
 
+
+
+        // -- Despliege de Paginas -- //
         private void ToggleMontmartre(object sender, EventArgs e)
         {
             contentMontmartre.IsVisible = !contentMontmartre.IsVisible;

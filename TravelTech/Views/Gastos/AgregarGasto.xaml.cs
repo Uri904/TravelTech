@@ -16,9 +16,25 @@ namespace TravelTech.Views.Gastos
         {
             InitializeComponent();
         }
+
+
+        // -- Navegación -- //
+
+        //Evento btn_Regresar
+        private async void btn_Regresar(object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();// Regresa a la página anterior
+        }
+
+        //Evento del boton BtnCancelar
         private async void BtnCancelar(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new Views.Gastos.VerGastos());
         }
+
+
+
+
+
     }
 }
