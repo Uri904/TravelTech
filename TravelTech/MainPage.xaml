@@ -1,111 +1,211 @@
-﻿<!-- MainPage.xaml -->
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TravelTech.MainPage"
-             BackgroundColor="#F5F5F5"
-             NavigationPage.HasNavigationBar="False">
-    
+﻿<!--  MainPage.xaml  -->
+<ContentPage
+    BackgroundColor="#F5F5F5"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="TravelTech.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
     <Grid RowDefinitions="Auto,*,60">
 
-        <!-- Top Menu Bar -->
-        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
-            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                <Button Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
-                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
-                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
-                      VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
-                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
-                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+        <!--  Top Menu Bar  -->
+        <Frame
+            Padding="0"
+            BackgroundColor="White"
+            CornerRadius="0"
+            Grid.Row="0"
+            HasShadow="True">
+            <Grid
+                Padding="10,5"
+                ColumnDefinitions="Auto,*,Auto"
+                HeightRequest="50">
+                <Button
+                    Grid.Column="0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="0"
+                    FontSize="24"
+                    HeightRequest="40"
+                    Text="≡"
+                    TextColor="Black"
+                    WidthRequest="40" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Travel Tech"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Column="2"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="0"
+                    FontSize="22"
+                    HeightRequest="40"
+                    Text="✈"
+                    TextColor="Black"
+                    WidthRequest="40" />
             </Grid>
         </Frame>
 
-        <!-- Main Content -->
-        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+        <!--  Main Content  -->
+        <ScrollView BackgroundColor="#F5F5F5" Grid.Row="1">
             <StackLayout Padding="15,10" Spacing="15">
-                <!-- Title -->
-                <Label Text="Mis viajes" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,10" />
+                <!--  Title  -->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    Margin="0,5,0,10"
+                    Text="Mis viajes"
+                    TextColor="Black" />
 
-                <!-- Trip Card -->
-                <Frame BackgroundColor="White" Padding="15" CornerRadius="5" HasShadow="True">
-                    <StackLayout Spacing="10">
-                        <Label Text="Viaje a Francia" TextColor="Black" FontSize="18" FontAttributes="Bold" />
+                <!--  ListView de Viajes  -->
+                <ListView
+                    x:Name="listaViajes"
+                    HasUnevenRows="True"
+                    SelectionMode="None"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame
+                                    Padding="15"
+                                    BackgroundColor="White"
+                                    CornerRadius="5"
+                                    HasShadow="True"
+                                    Margin="0,0,0,15">
+                                    <StackLayout Spacing="10">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="18"
+                                            Text="{Binding nombre}"
+                                            TextColor="Black" />
+                                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                                            <Label
+                                                Grid.Column="0"
+                                                FontAttributes="Bold"
+                                                Grid.Row="0"
+                                                Text="Fecha de inicio:"
+                                                TextColor="Black" />
+                                            <Label
+                                                Grid.Column="1"
+                                                Grid.Row="0"
+                                                Text="{Binding Fecha_inicio}"
+                                                TextColor="Black" />
 
-                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
-                            <Label Grid.Row="0" TextColor="Black" Grid.Column="0" Text="Fecha:" FontAttributes="Bold" />
-                            <Label Grid.Row="0" TextColor="Black" Grid.Column="1" Text="31/08/2021" />
+                                            <Label
+                                                Grid.Column="0"
+                                                FontAttributes="Bold"
+                                                Grid.Row="1"
+                                                Text="Presupuesto:"
+                                                TextColor="Black" />
+                                            <Label
+                                                Grid.Column="1"
+                                                Grid.Row="1"
+                                                Text="{Binding Presupuesto}"
+                                                TextColor="Black" />
 
-                            <Label Grid.Row="1" TextColor="Black" Grid.Column="0" Text="Presupuesto:" FontAttributes="Bold" />
-                            <Label Grid.Row="1" TextColor="Black" Grid.Column="1" Text="$3500" />
-
-                            <Label Grid.Row="2" TextColor="Black" Grid.Column="0" Text="Actividades:" FontAttributes="Bold" />
-                            <Label Grid.Row="2" TextColor="Black" Grid.Column="1" Text="Torre Eiffel" />
-                        </Grid>
-
-                        <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
-                            
-                            <Button Grid.Column="0" 
-                                    Text="VER DETALLES" 
-                                    BackgroundColor="#2A4B7C" 
-                                    TextColor="White" 
-                                    HeightRequest="40" 
-                                    CornerRadius="5" 
-                                    HorizontalOptions="Start" 
-                                    Clicked="btn_VerDetalles"/>
-
-                            <Button Grid.Column="1" 
-                                  BackgroundColor="Red" 
-                                  CornerRadius="15" 
-                                  WidthRequest="30" 
-                                  HeightRequest="30"
-                                  Padding="0"
-                                  HorizontalOptions="End"
-                                  VerticalOptions="Center"
-                                  Margin="0,0,10,0"
-                                  ImageSource="trash_icon.png" />
-                        </Grid>
-                    </StackLayout>
-                </Frame>
-
-                <!-- Puedes añadir más tarjetas de viaje aquí -->
+                                            <Label
+                                                Grid.Column="0"
+                                                FontAttributes="Bold"
+                                                Grid.Row="2"
+                                                Text="Actividades:"
+                                                TextColor="Black" />
+                                            <Label
+                                                Grid.Column="1"
+                                                Grid.Row="2"
+                                                Text="{Binding ActividadesResumen}"
+                                                TextColor="Black" />
+                                        </Grid>
+                                        <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                                            <Button
+                                                Grid.Column="0"
+                                                BackgroundColor="#2A4B7C"
+                                                Clicked="btn_VerDetalles"
+                                                CommandParameter="{Binding Id}"
+                                                CornerRadius="5"
+                                                HeightRequest="40"
+                                                HorizontalOptions="Start"
+                                                Text="VER DETALLES"
+                                                TextColor="White" />
+                                            <Button
+                                                Grid.Column="1"
+                                                Padding="0"
+                                                BackgroundColor="Red"
+                                                Clicked="btn_EliminarViaje"
+                                                CommandParameter="{Binding Id}"
+                                                CornerRadius="15"
+                                                HeightRequest="30"
+                                                HorizontalOptions="End"
+                                                ImageSource="trash_icon.png"
+                                                Margin="0,0,10,0"
+                                                VerticalOptions="Center"
+                                                WidthRequest="30" />
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
 
-        <!-- Bottom Navigation Bar with Larger Circle Button -->
-        <Grid Grid.Row="2" ColumnDefinitions="*,Auto,*" BackgroundColor="#A5CAEF">
-            <!-- Botón de Inicio -->
-            <Button Grid.Column="0" 
-                  Text="🏠" FontSize="24" 
-                  BackgroundColor="Transparent" 
-                  HorizontalOptions="Center" VerticalOptions="Center" />
+        <!--  Bottom Navigation Bar with Larger Circle Button  -->
+        <Grid
+            BackgroundColor="#A5CAEF"
+            ColumnDefinitions="*,Auto,*"
+            Grid.Row="2">
+            <!--  Botón de Inicio  -->
+            <Button
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="🏠"
+                VerticalOptions="Center" />
 
-            <!-- Contenedor para el botón flotante que sea más grande que la barra -->
-            <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
-                <!-- El botón se coloca con un margen negativo para que sobresalga de la barra -->
-                <Frame BackgroundColor="#214B81" CornerRadius="30" 
-                      HeightRequest="60" WidthRequest="60" 
-                      Margin="0,-20,0,0"
-                      Padding="0" IsClippedToBounds="True" HasShadow="True"
-                      VerticalOptions="Center" HorizontalOptions="Center">
-                    
-                    <Button Text="+" 
-                            BackgroundColor="#214B81"
-                            TextColor="White" 
-                            FontSize="36"
-                            Margin="-5"
-                            HorizontalOptions="Center" 
-                            VerticalOptions="Center"
-                            Clicked="btn_CrearViaje"/>
+            <!--  Contenedor para el botón flotante que sea más grande que la barra  -->
+            <Grid
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <!--  El botón se coloca con un margen negativo para que sobresalga de la barra  -->
+                <Frame
+                    Padding="0"
+                    BackgroundColor="#214B81"
+                    CornerRadius="30"
+                    HasShadow="True"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    Margin="0,-20,0,0"
+                    VerticalOptions="Center"
+                    WidthRequest="60">
+
+                    <Button
+                        BackgroundColor="#214B81"
+                        Clicked="btn_CrearViaje"
+                        FontSize="36"
+                        HorizontalOptions="Center"
+                        Margin="-5"
+                        Text="+"
+                        TextColor="White"
+                        VerticalOptions="Center" />
                 </Frame>
             </Grid>
 
-            
-            <Button Grid.Column="2" 
-                    Text="📅" 
-                    FontSize="24" 
-                    BackgroundColor="Transparent" 
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" 
-                    Clicked="btn_Calendario"/>
+
+            <Button
+                Grid.Column="2"
+                BackgroundColor="Transparent"
+                Clicked="btn_Calendario"
+                FontSize="24"
+                HorizontalOptions="Center"
+                Text="📅"
+                VerticalOptions="Center" />
         </Grid>
     </Grid>
 </ContentPage>

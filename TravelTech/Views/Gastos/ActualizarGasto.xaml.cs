@@ -29,7 +29,7 @@ namespace TravelTech.Views.Gastos
         //Evento del boton BtnCancelar
         private async void BtnCancelar(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new Views.Gastos.VerGastos());
+            //await Navigation.PushAsync(new Views.Gastos.VerGastos());
         }
 
 

@@ -12,7 +12,7 @@ namespace TravelTech.Views.Gastos
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VerGastos : ContentPage
     {
-        public VerGastos()
+        public VerGastos(int viajeId)
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace TravelTech.Views.Gastos
         // Evento del Boton btn_Detalles
         private async void btn_Detalles(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new Viajes.Detalles());
+            //await Navigation.PushAsync(new Viajes.Detalles());
         }
 
         // Evento del Boton btn_Destinos

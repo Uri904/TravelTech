@@ -7,7 +7,6 @@
              NavigationPage.HasNavigationBar="False">
 
     <Grid RowDefinitions="Auto,*,Auto">
-
         <!-- Top Menu Bar -->
         <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
             <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
@@ -23,7 +22,6 @@
         <!-- Main Content -->
         <ScrollView Grid.Row="1">
             <StackLayout Padding="20,10" Spacing="15">
-
                 <!-- Title -->
                 <Label Text="Editar detalles" TextColor="Black" FontSize="24" FontAttributes="Bold" 
                        Margin="0,5,0,15"/>
@@ -31,36 +29,32 @@
                 <!-- Campos de entrada -->
                 <Label Text="Nombre del viaje:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Text="Viaje a Francia" PlaceholderColor="#CCCCCC" HeightRequest="40"/>
+                    <Entry x:Name="nombreEntry" PlaceholderColor="#CCCCCC" HeightRequest="40"/>
                 </Frame>
 
                 <Label Text="Fecha de inicio:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <DatePicker/>
+                    <DatePicker x:Name="fechaInicioDatePicker"/>
                 </Frame>
 
                 <Label Text="Fecha de fin:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <DatePicker/>
+                    <DatePicker x:Name="fechaFinDatePicker"/>
                 </Frame>
-
 
                 <Label Text="Presupuesto:" TextColor="Black" FontSize="16" />
                 <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Text="$3500" TextColor="Black" BackgroundColor="White" HeightRequest="40" Keyboard="Numeric"/>
+                    <Entry x:Name="presupuestoEntry" TextColor="Black" BackgroundColor="White" HeightRequest="40" Keyboard="Numeric"/>
                 </Frame>
 
                 <!-- Botones -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="15" Margin="0,20,0,0">
                     <Button Text="Cancelar" BackgroundColor="#E74C3C" TextColor="White" Clicked="btn_Cancelar"
                             CornerRadius="10" HeightRequest="50" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Actualizar" BackgroundColor="#64AB81" TextColor="White"
+                    <Button Text="Actualizar" BackgroundColor="#64AB81" TextColor="White" Clicked="btn_Actualizar"
                             CornerRadius="10" HeightRequest="50" HorizontalOptions="FillAndExpand"/>
                 </StackLayout>
-
             </StackLayout>
         </ScrollView>
-
     </Grid>
-
 </ContentPage>

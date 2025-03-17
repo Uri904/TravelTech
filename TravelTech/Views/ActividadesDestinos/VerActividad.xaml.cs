@@ -22,7 +22,7 @@ namespace TravelTech.Views.ActividadesDestinos
         //Evento del botón btn_VerDetalle
         private async void btn_VerDetalle(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new Viajes.Detalles());
+            //await Navigation.PushAsync(new Viajes.Detalles());
         }
 
         //Evento del botón btn_VerDestino
@@ -34,7 +34,7 @@ namespace TravelTech.Views.ActividadesDestinos
         //Evento del botón btn_VerGastos
         private async void btn_VerGastos(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new Gastos.VerGastos());
+            //await Navigation.PushAsync(new Gastos.VerGastos());
         }
 
         //Evento del botón btn_CrearActividad

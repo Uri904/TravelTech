@@ -1,80 +1,158 @@
-﻿<!-- CrearViajePage.xaml -->
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TravelTech.Views.Viajes.Crear"
-             BackgroundColor="#F5F5F5"
-              NavigationPage.HasNavigationBar="False">
-    
+﻿<!--  CrearViajePage.xaml  -->
+<ContentPage
+    BackgroundColor="#F5F5F5"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="TravelTech.Views.Viajes.Crear"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
     <Grid RowDefinitions="Auto,*">
-        <!-- Top Menu Bar -->
-        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
-            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                
-                <Button Grid.Column="0" Text="←" FontSize="24" BackgroundColor="Transparent" TextColor="Black" 
-                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" Clicked="btn_Regresar"/>
-                
-                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
-                      VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
-                
-                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
-                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+
+        <Frame
+            Padding="0"
+            BackgroundColor="White"
+            CornerRadius="0"
+            Grid.Row="0"
+            HasShadow="True">
+            <Grid
+                Padding="10,5"
+                ColumnDefinitions="Auto,*,Auto"
+                HeightRequest="50">
+
+                <Button
+                    Grid.Column="0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    Clicked="btn_Regresar"
+                    CornerRadius="0"
+                    FontSize="24"
+                    HeightRequest="40"
+                    Text="←"
+                    TextColor="Black"
+                    WidthRequest="40" />
+
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="Center"
+                    Text="Travel Tech"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+
+                <Button
+                    Grid.Column="2"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="0"
+                    FontSize="22"
+                    HeightRequest="40"
+                    Text="✈"
+                    TextColor="Black"
+                    WidthRequest="40" />
             </Grid>
         </Frame>
 
-        <!-- Main Content -->
-        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+        <ScrollView BackgroundColor="#F5F5F5" Grid.Row="1">
             <StackLayout Padding="20,15" Spacing="15">
-                <!-- Title -->
-                <Label Text="Crear viaje" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    Margin="0,5,0,15"
+                    Text="Crear viaje"
+                    TextColor="Black" />
 
-                <!-- Form Fields -->
-                <Label Text="Nombre del viaje:" TextColor="Black" FontSize="16" />
-                <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Placeholder="" PlaceholderColor="#CCCCCC" HeightRequest="40" />
+                <Label
+                    FontSize="16"
+                    Text="Nombre del viaje:"
+                    TextColor="Black" />
+                <Frame
+                    Padding="10,0"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <Entry
+                        x:Name="EntryNombre"
+                        HeightRequest="40"
+                        Placeholder="Ingrese nombre del viaje"
+                        PlaceholderColor="#CCCCCC" />
                 </Frame>
 
-                <Label Text="Fecha de inicio:" TextColor="Black" FontSize="16" Margin="0,10,0,0" />
-                <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Placeholder="" PlaceholderColor="#CCCCCC" HeightRequest="40" />
+                <Label
+                    FontSize="16"
+                    Margin="0,10,0,0"
+                    Text="Fecha de inicio:"
+                    TextColor="Black" />
+                <Frame
+                    Padding="10,0"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <DatePicker x:Name="DateInicio" HeightRequest="40" />
                 </Frame>
 
-                <Label Text="Fecha de fin:" TextColor="Black" FontSize="16" Margin="0,10,0,0" />
-                <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Placeholder="" PlaceholderColor="#CCCCCC" HeightRequest="40" />
+                <Label
+                    FontSize="16"
+                    Margin="0,10,0,0"
+                    Text="Fecha de fin:"
+                    TextColor="Black" />
+                <Frame
+                    Padding="10,0"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <DatePicker x:Name="DateFin" HeightRequest="40" />
                 </Frame>
 
-                <Label Text="Presupuesto:" TextColor="Black" FontSize="16" Margin="0,10,0,0" />
-                <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                    <Entry Placeholder="" PlaceholderColor="#CCCCCC" HeightRequest="40" Keyboard="Numeric" />
+                <Label
+                    FontSize="16"
+                    Margin="0,10,0,0"
+                    Text="Presupuesto:"
+                    TextColor="Black" />
+                <Frame
+                    Padding="10,0"
+                    BackgroundColor="White"
+                    BorderColor="#DDDDDD"
+                    CornerRadius="5"
+                    HasShadow="False">
+                    <Entry
+                        x:Name="EntryPresupuesto"
+                        HeightRequest="40"
+                        Keyboard="Numeric"
+                        Placeholder="Ingrese presupuesto"
+                        PlaceholderColor="#CCCCCC" />
                 </Frame>
 
-                <!-- Warning Note -->
-                <Frame BackgroundColor="#FFEBEE" Padding="10" CornerRadius="5" BorderColor="#FFCDD2" Margin="0,15,0,15">
+                <Frame
+                    Padding="10"
+                    BackgroundColor="#FFEBEE"
+                    BorderColor="#FFCDD2"
+                    CornerRadius="5"
+                    Margin="0,15,0,15">
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="⚠" TextColor="#D32F2F" FontSize="18" VerticalOptions="Start" />
-                        <Label Text="Nota: Solo podrás agregar un destino y una actividad durante la creación del viaje, después podrás agregar más." 
-                              TextColor="#D32F2F" FontSize="14" />
+                        <Label
+                            FontSize="18"
+                            Text="⚠"
+                            TextColor="#D32F2F"
+                            VerticalOptions="Start" />
+                        <Label
+                            FontSize="14"
+                            Text="Nota: Los destinos y actividades se podrán agregar después de crear el viaje."
+                            TextColor="#D32F2F" />
                     </StackLayout>
                 </Frame>
 
-                <!-- Action Buttons -->
-                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,10,0,0">
-                    <Button Grid.Column="0" Text="Agregar destino" 
-                            BackgroundColor="#90CAF9" TextColor="Black" 
-                            CornerRadius="20" HeightRequest="55" 
-                            Clicked="btn_AgregarDestino"/>
-
-                    <Button Grid.Column="1" Text="Agregar actividad" 
-                            BackgroundColor="#A5D6A7" TextColor="Black" 
-                            CornerRadius="20" HeightRequest="45" 
-                            Clicked="btn_AgregarActividad"/>
-                </Grid>
-
-                <!-- Submit Button -->
-                <Button Text="Crear viaje" 
-                      BackgroundColor="#1A3A5D" TextColor="White" 
-                      CornerRadius="5" HeightRequest="50"
-                      Margin="0,20,0,30" />
+                <Button
+                    BackgroundColor="#1A3A5D"
+                    Clicked="btn_CrearViaje"
+                    CornerRadius="5"
+                    HeightRequest="50"
+                    Margin="0,20,0,30"
+                    Text="Crear viaje"
+                    TextColor="White" />
             </StackLayout>
         </ScrollView>
     </Grid>
