@@ -24,6 +24,9 @@ namespace TravelTech.Tablas
         [MaxLength(255)]
         public string nota { get; set; }
 
+        [MaxLength(255)]
+        public string Estado { get; set; }
+
         [ForeignKey(typeof(T_Viaje))]
         public int PK_id_viaje { get; set; }
 

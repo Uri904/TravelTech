@@ -86,7 +86,7 @@ namespace TravelTech.Views.Destinos
         // Evento del Boton Actividades
         private async void btn_Actividades(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
+            await Navigation.PushAsync(new ActividadesDestinos.VerActividad(_viajeId));
         }
 
         // Evento del botón btn_VerGastos

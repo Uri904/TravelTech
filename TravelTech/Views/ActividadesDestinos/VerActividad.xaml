@@ -30,40 +30,19 @@
 
                         <StackLayout x:Name="contentActividad1" IsVisible="False">
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Prioridad: " FontSize="16"/>
-                                <Label Text="Alta" FontSize="16" FontAttributes="Bold"/>
+                                <Label Text="Estado: " FontSize="16"/>
+                                <Label Text="Completada" FontSize="16" FontAttributes="Bold"/>
                             </StackLayout>
 
-                            <Label Text="Notas:" FontSize="16"/>
-
-                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
-                                <Label Text="De noche es mejor." TextColor="#666"/>
-                            </Frame>
-
-                            <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="btnEditar"/>
-                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-
-                <!-- Actividad: Recorrer Montmartre -->
-                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                    <StackLayout>
-                        <Button Text="Recorrer Montmartre ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
-                                Clicked="ToggleActividad2" x:Name="btnActividad2"/>
-
-                        <StackLayout x:Name="contentActividad2" IsVisible="False">
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="Prioridad: " FontSize="16"/>
-                                <Label Text="Media" FontSize="16" FontAttributes="Bold"/>
+                                <Label Text="Fecha: " FontSize="16"/>
+                                <Label Text="17/03/2025" FontSize="16" FontAttributes="Bold"/>
                             </StackLayout>
 
                             <Label Text="Notas:" FontSize="16"/>
 
                             <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
-                                <Label Text="Ir al mirador de la torre Montmartre." TextColor="#666"/>
+                                <Label Text="Ver el anochecer." TextColor="#666"/>
                             </Frame>
 
                             <StackLayout Orientation="Horizontal" Spacing="10">

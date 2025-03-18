@@ -14,9 +14,10 @@ namespace TravelTech.Views.ActividadesDestinos
 	{
         private int _viajeId;
 
-        public VerActividad ()
+        public VerActividad (int viajeId)
 		{
 			InitializeComponent ();
+            
 
         }
 
@@ -25,7 +26,7 @@ namespace TravelTech.Views.ActividadesDestinos
         //Evento del botón btn_VerDetalle
         private async void btn_VerDetalle(object sender, System.EventArgs e)
         {
-            //await Navigation.PushAsync(new Viajes.Detalles());
+            //await Navigation.PushAsync(new Viajes.Detalles(_viajeId));
         }
 
         //Evento del botón btn_VerDestino
@@ -37,7 +38,7 @@ namespace TravelTech.Views.ActividadesDestinos
         //Evento del botón btn_VerGastos
         private async void btn_VerGastos(object sender, System.EventArgs e)
         {
-            //await Navigation.PushAsync(new Gastos.VerGastos());
+            await Navigation.PushAsync(new Gastos.VerGastos(_viajeId));
         }
 
         //Evento del botón btn_CrearActividad
@@ -71,12 +72,6 @@ namespace TravelTech.Views.ActividadesDestinos
         {
             contentActividad1.IsVisible = !contentActividad1.IsVisible;
             btnActividad1.Text = contentActividad1.IsVisible ? "Subir a la Torre Eiffel ▲" : "Subir a la Torre Eiffel ▼";
-        }
-
-        private void ToggleActividad2(object sender, System.EventArgs e)
-        {
-            contentActividad2.IsVisible = !contentActividad2.IsVisible;
-            btnActividad2.Text = contentActividad2.IsVisible ? "Recorrer Montmartre ▲" : "Recorrer Montmartre ▼";
         }
 
 

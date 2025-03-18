@@ -115,7 +115,7 @@ namespace TravelTech.Views.Gastos
 
         private async void btn_Actividades(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ActividadesDestinos.VerActividad());
+            await Navigation.PushAsync(new ActividadesDestinos.VerActividad(_viajeId));
         }
     }
 }
