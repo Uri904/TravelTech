@@ -75,7 +75,8 @@
                     <Entry
                         HeightRequest="40"
                         Placeholder="Ingresa el nombre del destino"
-                        PlaceholderColor="#CCCCCC" />
+                        PlaceholderColor="#CCCCCC"
+                        x:Name="EntryDestino"/>
                 </Frame>
 
                 <!--  Prioridad  -->
@@ -85,9 +86,9 @@
                     Text="Prioridad:"
                     TextColor="Black" />
                 <StackLayout Orientation="Horizontal" Spacing="15">
-                    <RadioButton Content="Alta" TextColor="Black" />
-                    <RadioButton Content="Media" TextColor="Black" />
-                    <RadioButton Content="Baja" TextColor="Black" />
+                    <RadioButton Content="Alta" GroupName="prioridad" x:Name="rbAlta"/>
+                    <RadioButton Content="Media" GroupName="prioridad" x:Name="rbMedia"/>
+                    <RadioButton Content="Baja" GroupName="prioridad" x:Name="rbBaja"/>
                 </StackLayout>
 
                 <!--  Notas  -->
@@ -107,7 +108,8 @@
                         AutoSize="TextChanges"
                         HeightRequest="90"
                         Placeholder="Escribe notas adicionales"
-                        PlaceholderColor="#CCCCCC" />
+                        PlaceholderColor="#CCCCCC" 
+                        x:Name="EntryNota"/>
                 </Frame>
 
                 <!--  Submit Button  -->
@@ -117,7 +119,8 @@
                     HeightRequest="50"
                     Margin="0,20,0,30"
                     Text="Agregar destino"
-                    TextColor="White" />
+                    TextColor="White"
+                    Clicked="btn_AgregarDestino"/>
             </StackLayout>
         </ScrollView>
     </Grid>

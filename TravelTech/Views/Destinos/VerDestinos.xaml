@@ -25,63 +25,53 @@
                 <Label Text="Destinos" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
 
                 <!-- Lista de Destinos -->
-                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                    <StackLayout>
-                        <Button Text="París ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
-                                Clicked="ToggleParis" x:Name="btnParis"/>
-                        
-                        <StackLayout x:Name="contentParis" IsVisible="False">
+                <ListView
+                    x:Name="listaViajes"
+                    HasUnevenRows="True"
+                    SelectionMode="None"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
                             
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Prioridad: " FontSize="16" />
-                                <Label Text="Alta" FontSize="16" FontAttributes="Bold" />
-                            </StackLayout>
-                            
-                            <Label Text="Notas:" FontSize="16" />
-                            
-                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
-                                <Label Text="Buscar un hotel cerca del centro." TextColor="#666" />
-                            </Frame>
-                            
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
-                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"/>
-                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
-                            </StackLayout>
+                    <Frame Padding="20"  CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                        <StackLayout>
+                            <Button Text="{Binding nombre}" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
+                                Clicked="ToggleParis" x:Name="btnParis" />
 
+                                        <StackLayout x:Name="contentParis" IsVisible="False">
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Prioridad: " FontSize="16" />
+                                    <Label Text="{Binding prioridad}" FontSize="16" FontAttributes="Bold" />
+                                </StackLayout>
+
+                                <Label Text="Notas:" FontSize="16" />
+
+                                <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
+                                    <Label Text="{Binding nota}" TextColor="#666" />
+                                </Frame>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"   CommandParameter="{Binding Id}"
+/>
+                                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" Clicked="btn_EliminarDestino"  CommandParameter="{Binding Id}"
+ />
+                                </StackLayout>
+
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                    
 
-                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                    <StackLayout>
-                        <Button Text="Recorrer Montmartre ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
-                                Clicked="ToggleMontmartre" x:Name="btnMontmartre"/>
 
-                        <StackLayout x:Name="contentMontmartre" IsVisible="False">
-                            
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Prioridad: " FontSize="16" />
-                                <Label Text="Media" FontSize="16" FontAttributes="Bold" />
-                            </StackLayout>
-                            
-                            <Label Text="Notas:" FontSize="16" />
-                            
-                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
-                                <Label Text="Ir al mirador de la torre Montre." TextColor="#666" />
-                            </Frame>
-                            
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
-                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"/>
-                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" />
-                            </StackLayout>
-                            
-                        </StackLayout>
-
-                    </StackLayout>
-                </Frame>
 
                 <!-- Botón Agregar -->
-                <Button Text="Agregar destino" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_AgregarDestino"/>
+                <Button Text="Agregar destino" BackgroundColor="#2196F3" Margin="0,-500,0,0" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_AgregarDestino"/>
             </StackLayout>
         </ScrollView>
 

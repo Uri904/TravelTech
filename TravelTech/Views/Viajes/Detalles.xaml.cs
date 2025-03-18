@@ -71,7 +71,7 @@ namespace TravelTech.Views.Viajes
         //Evento btn_Destino
         private async void btn_Destino(object sender, System.EventArgs e)
         {
-            //await Navigation.PushAsync(new Destinos.VerDestinos(_viajeId));
+            await Navigation.PushAsync(new Destinos.VerDestinos(_viajeId));
         }
 
         //Evento btn_Actividades

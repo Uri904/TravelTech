@@ -12,10 +12,13 @@ namespace TravelTech.Views.ActividadesDestinos
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class VerActividad : ContentPage
 	{
-		public VerActividad ()
+        private int _viajeId;
+
+        public VerActividad ()
 		{
 			InitializeComponent ();
-		}
+
+        }
 
         // -- Navegación -- //
 
@@ -28,7 +31,7 @@ namespace TravelTech.Views.ActividadesDestinos
         //Evento del botón btn_VerDestino
         private async void btn_VerDestino(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new Destinos.VerDestinos());
+            await Navigation.PushAsync(new Destinos.VerDestinos(_viajeId));
         }
 
         //Evento del botón btn_VerGastos
