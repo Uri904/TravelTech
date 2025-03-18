@@ -4,7 +4,7 @@
              x:Class="TravelTech.Views.Gastos.ActualizarGasto"
              BackgroundColor="#F5F5F5"
              NavigationPage.HasNavigationBar="False">
-    
+
     <ContentPage.Content>
         <Grid RowDefinitions="Auto,*">
             <!-- Top Menu Bar -->
@@ -25,37 +25,41 @@
                     <!-- Title -->
                     <Label Text="Actualizar Gastos" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
 
-                    <!-- Nombre -->
+                    <!-- Categoría -->
                     <Label Text="Categoría:" TextColor="Black" FontSize="16" />
                     <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                        <Entry  PlaceholderColor="#CCCCCC" HeightRequest="40" />
+                        <Entry x:Name="txtCategoria" PlaceholderColor="#CCCCCC" HeightRequest="40" Text="{Binding Categoria}" />
                     </Frame>
 
+                    <!-- Fecha -->
                     <Label Text="Fecha:" TextColor="Black" FontSize="16" />
                     <Frame Padding="10,0" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White">
-                        <DatePicker TextColor="Black" FontSize="16" Margin="0,10,0,0"/>
+                        <DatePicker x:Name="dpFecha" TextColor="Black" FontSize="16" Margin="0,10,0,0" Date="{Binding Fecha_gasto}" />
                     </Frame>
 
+                    <!-- Monto -->
                     <Label Text="Monto:" TextColor="Black" FontSize="16" Margin="0,10,0,0"/>
                     <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="White" HeightRequest="40">
-                        <Entry  PlaceholderColor="#CCCCCC" HeightRequest="40" Keyboard="Numeric" />
-
+                        <Entry x:Name="txtMonto" PlaceholderColor="#CCCCCC" HeightRequest="40" Keyboard="Numeric" Text="{Binding Monto}" />
                     </Frame>
+
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <!-- Submit Button -->
+                        <!-- Cancelar Button -->
                         <Button Text="Cancelar" 
-                        BackgroundColor="Red" TextColor="White" 
-                        CornerRadius="5" HeightRequest="50"
-                        Margin="0,20,0,30" 
-                        Clicked="BtnCancelar"
+                                BackgroundColor="Red" TextColor="White" 
+                                CornerRadius="5" HeightRequest="50"
+                                Margin="0,20,0,30" 
+                                Clicked="BtnCancelar"
                         />
-                        <!-- Submit Button -->
+                        <!-- Actualizar Button -->
                         <Button Text="Actualizar" 
-                        BackgroundColor="#A5D6A7" TextColor="White" 
-                        CornerRadius="5" HeightRequest="50"
-                        Margin="80,20,0,30" 
+                                BackgroundColor="#A5D6A7" TextColor="White" 
+                                CornerRadius="5" HeightRequest="50"
+                                Margin="80,20,0,30" 
+                                Clicked="BtnActualizar"
                         />
                     </StackLayout>
+
                 </StackLayout>
             </ScrollView>
         </Grid>

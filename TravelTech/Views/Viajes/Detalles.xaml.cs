@@ -83,7 +83,7 @@ namespace TravelTech.Views.Viajes
         //Evento btn_Gastos
         private async void btn_Gastos(object sender, System.EventArgs e)
         {
-            //await Navigation.PushAsync(new Gastos.VerGastos(_viajeId));
+            await Navigation.PushAsync(new Gastos.VerGastos(_viajeId));
         }
 
         //Evento btn_EditarDetalles

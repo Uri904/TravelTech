@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
-using TravelTech.Tablas;
 
 namespace TravelTech.Tablas
 {
@@ -18,11 +15,9 @@ namespace TravelTech.Tablas
         [MaxLength(255)]
         public string Categoria { get; set; }
 
-        [MaxLength(255)]
-        public string monto { get; set; }
+        public double Monto { get; set; }
 
-        [MaxLength(255)]
-        public string Fecha_gasto { get; set; }
+        public DateTime Fecha_gasto { get; set; } // Cambio a DateTime
 
         // Relación con Viaje
         [ManyToOne]

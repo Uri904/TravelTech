@@ -25,37 +25,51 @@
                 <Frame Padding="10" CornerRadius="10" BackgroundColor="White" HasShadow="True">
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Text="Presupuesto:" FontSize="16" FontAttributes="Bold"/>
-                        <Label Text="$3500" FontSize="16" TextColor="Black" Grid.Column="1"/>
+                        <Label x:Name="lblPresupuesto" FontSize="16" TextColor="Black" Grid.Column="1"/>
                     </Grid>
                 </Frame>
 
-                <!-- Detalle de Gastos -->
-                <Frame Padding="10" CornerRadius="10" BackgroundColor="White" HasShadow="True">
-                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
-                        <StackLayout Grid.Row="0" Grid.Column="0">
-                            <Label Text="Tipo: Hospedaje" FontSize="16"/>
-                            <Label Text="Fecha: 01/09/2021" FontSize="14" TextColor="Gray"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="10">
-                            <Button Text="🟢 Actualizar" BackgroundColor="Transparent" FontSize="14" Clicked="BtnActualizar"/>
-                            <Button Text="🔴 Eliminar" BackgroundColor="Transparent" FontSize="14"/>
-                        </StackLayout>
-                        <Label Text="$1500" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"/>
+                <!-- ListView de Gastos -->
+                <ListView x:Name="listaGastos" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="200">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="10" CornerRadius="10" BackgroundColor="White" HasShadow="True">
+                                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                                        <StackLayout Grid.Row="0" Grid.Column="0">
+                                            <Label Text="{Binding Categoria}" FontSize="16" TextColor="Black"/>
+                                            <Label Text="{Binding Fecha_gasto}" FontSize="14" TextColor="Gray"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="10">
+                                            <Button Text="🟢 Actualizar" BackgroundColor="Transparent" FontSize="14" 
+                                                    Command="{Binding Path=BindingContext.ActualizarCommand, Source={x:Reference listaGastos}}" 
+                                                    CommandParameter="{Binding Id}"/>
+                                            <Button Text="🔴 Eliminar" BackgroundColor="Transparent" FontSize="14" Clicked="EliminarButton_Clicked" CommandParameter="{Binding Id}"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding Monto}" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <!-- Totales -->
+                <Frame Padding="5" CornerRadius="5" BackgroundColor="White" BorderColor="#DDDDDD">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Gastos totales:" FontSize="16"/>
+                        <Label x:Name="lblTotalGastos" Text="$0" FontSize="16" Grid.Column="1"/>
                     </Grid>
                 </Frame>
-
-                <Grid ColumnDefinitions="*,Auto">
-                    <Label Text="Gastos totales:" FontSize="16"/>
-                    <Label Text="$1500" FontSize="16" Grid.Column="1"/>
-                </Grid>
 
                 <Frame Padding="5" CornerRadius="5" BackgroundColor="White" BorderColor="#DDDDDD">
                     <Grid ColumnDefinitions="*,Auto">
                         <Label Text="Presupuesto restante:" FontSize="16"/>
-                        <Label Text="$2000" FontSize="16" Grid.Column="1"/>
+                        <Label x:Name="lblPresupuestoRestante" Text="$0" FontSize="16" Grid.Column="1"/>
                     </Grid>
                 </Frame>
 
+                <!-- Agregar Gasto -->
                 <Button Text="AGREGAR GASTO" BackgroundColor="#ADD8E6" TextColor="Black" CornerRadius="10" HeightRequest="50" Clicked="BtnAgregar"/>
             </StackLayout>
         </ScrollView>
