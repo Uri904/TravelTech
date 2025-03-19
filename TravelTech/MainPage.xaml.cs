@@ -135,6 +135,8 @@ namespace TravelTech
 
         private void btn_Calendario(object sender, EventArgs e)
         {
+
+            Navigation.PushAsync(new Views.CalendarioIn());
             // Implementación después
         }
     }
