@@ -11,8 +11,7 @@
         <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
             <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
                 <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" WidthRequest="40" HeightRequest="40" Clicked="btn_Home"/>
-                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
-                       VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
                 <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" WidthRequest="40" HeightRequest="40"/>
             </Grid>
         </Frame>
@@ -22,51 +21,72 @@
             <StackLayout Padding="20,15">
                 <Label Text="Actividades" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15"/>
 
-                <!-- Actividad: Subir a la Torre Eiffel -->
-                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                    <StackLayout>
-                        <Button Text="Subir a la Torre Eiffel ▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
-                                Clicked="ToggleActividad1" x:Name="btnActividad1"/>
+                <!-- VER ACTIVIDAD -->
+                <ListView
+                    x:Name="listaActividades"
+                    HasUnevenRows="True"
+                    SelectionMode="None"
+                    SeparatorVisibility="None"
+                    VerticalOptions="FillAndExpand" HeightRequest="400">
 
-                        <StackLayout x:Name="contentActividad1" IsVisible="False">
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Estado: " FontSize="16"/>
-                                <Label Text="Completada" FontSize="16" FontAttributes="Bold"/>
-                            </StackLayout>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White" Margin="0,0,0,15">
+                                    <StackLayout>
+                                        <!-- Nombre Actividad -->
+                                        <Label Text="{Binding nombre}" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"/>
 
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Fecha: " FontSize="16"/>
-                                <Label Text="17/03/2025" FontSize="16" FontAttributes="Bold"/>
-                            </StackLayout>
+                                        <!-- Botón Desplegable -->
+                                        <Button Text="▼" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
+                                                Clicked="ToggleActividad1" HorizontalOptions="End"/>
 
-                            <Label Text="Notas:" FontSize="16"/>
+                                        <!-- Contenido Detalles -->
+                                        <StackLayout x:Name="contentActividad1" IsVisible="False">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Estado: " FontSize="16"/>
+                                                <Label Text="{Binding Estado}" FontSize="16" FontAttributes="Bold"/>
+                                            </StackLayout>
 
-                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
-                                <Label Text="Ver el anochecer." TextColor="#666"/>
-                            </Frame>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Fecha: " FontSize="16"/>
+                                                <Label Text="{Binding Fecha_actividad}" FontSize="16" FontAttributes="Bold"/>
+                                            </StackLayout>
 
-                            <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="btnEditar"/>
-                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5"/>
-                            </StackLayout>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
+                                            <Label Text="Notas:" FontSize="16"/>
+                                            <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
+                                                <Label Text="{Binding nota}" TextColor="#666"/>
+                                            </Frame>
+
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" 
+                                                        CommandParameter="{Binding Id}"
+                                                        Clicked="btnEditar"/>
+                                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5"
+                                                        CommandParameter="{Binding Id}"
+                                                        Clicked="btn_EliminarActividad"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <!-- Botón Agregar -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10"  >
                     <Button Text="Ver recordatorios" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_VerRecordatorios"/>
                     <Button Text="Agregar actividad" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_CrearActividad"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-
-        <!-- Bottom Navigation Bar -->
         <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
-            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_VerDetalle"/>
-            <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_VerDestino"/>
-            <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White"/>
-            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" Clicked="btn_VerGastos"/>
+            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"/>
+            <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_VerGastos"/>
         </Grid>
+
     </Grid>
 </ContentPage>
