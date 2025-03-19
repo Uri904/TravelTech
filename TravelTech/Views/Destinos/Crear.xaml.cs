@@ -8,9 +8,7 @@ using SQLite;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TravelTech.Tablas;
-using SQLite;
-using System.IO;
+
 using static Xamarin.Essentials.Permissions;
 
 namespace TravelTech.Views.Destinos
