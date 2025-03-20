@@ -25,6 +25,7 @@ namespace TravelTech.Views.ActividadesDestinos
         public VerActividad (int viajeId)
 		{
 			InitializeComponent ();
+            _viajeId = viajeId;
 
             using (var db = new SQLiteConnection(dbPath))
             {
@@ -61,7 +62,7 @@ namespace TravelTech.Views.ActividadesDestinos
         //Evento del botón btn_CrearActividad
         private async void btn_CrearActividad(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new ActividadesDestinos.CrearActividad());
+            await Navigation.PushAsync(new ActividadesDestinos.CrearActividad(_viajeId));
         }
 
         //Evento del botón btn_Home
@@ -95,17 +96,13 @@ namespace TravelTech.Views.ActividadesDestinos
                 using (SQLiteConnection conn = new SQLiteConnection(dbPath))
                 {
                    
-                    var actividades = conn.Table<T_Actividad>().ToList(); // para obtener todas las ACTIVIDADES
+                    var actividades = conn.Table<T_Actividad>().Where(a => a.PK_id_viaje == _viajeId).ToList(); // para obtener todas las ACTIVIDADES
 
                     var actividadDisplay = new List<ActividadDisplayModel>();  // Lista con la información a mostrar
 
                     foreach (var actividad in actividades)
                     {
-                        // Actividades relacionadas para el resumen
-                        var recordatorios = conn.Table<T_Recordatorio>().Where(r => r.FK_id_actividad == actividad.Id).ToList();
-                        string resumenRecordatorios = recordatorios.Count > 0
-                            ? $"{recordatorios.Count} recordatorios"
-                            : "Sin recordatorios";
+                       
 
                         actividadDisplay.Add(new ActividadDisplayModel
                         {

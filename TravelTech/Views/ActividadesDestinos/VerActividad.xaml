@@ -82,7 +82,8 @@
             </StackLayout>
         </ScrollView>
         <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
-            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"/>
+            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"
+                    />
             <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
             <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
             <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_VerGastos"/>

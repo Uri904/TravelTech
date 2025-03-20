@@ -16,11 +16,13 @@ namespace TravelTech.Views.ActividadesDestinos
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CrearActividad : ContentPage
 	{
+        private int _viajeId;
         private string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TravelTech.db3");
-        public CrearActividad ()
+        public CrearActividad (int viajeId)
 		{
 			InitializeComponent ();
-		}
+            _viajeId = viajeId;
+        }
 
 
         // -- Navegación -- //
@@ -77,10 +79,12 @@ namespace TravelTech.Views.ActividadesDestinos
 
                     T_Actividad objActividad = new T_Actividad
                     {
+                        
                         nombre = NombreActividad.Text,
                         Fecha_actividad = FechaActividad.Date.ToString("yyyy-MM-dd"),
                         Estado = estado,
-                        nota = NotasActividad.Text
+                        nota = NotasActividad.Text,
+                        PK_id_viaje = _viajeId
                     };
 
 
