@@ -70,7 +70,7 @@ namespace TravelTech.Views.ActividadesDestinos
                     }
                     else if (rbPendiente.IsChecked)
                     {
-                        estado = "Cancelada";
+                        estado = "Pendiente";
                     }
                     else
                     {
