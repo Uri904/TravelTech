@@ -8,48 +8,29 @@
 
     <Grid RowDefinitions="Auto,*">
 
-        <Frame
-            Padding="0"
-            BackgroundColor="White"
-            CornerRadius="0"
-            Grid.Row="0"
-            HasShadow="True">
-            <Grid
-                Padding="10,5"
-                ColumnDefinitions="Auto,*,Auto"
-                HeightRequest="50">
+        <!-- Top Menu Bar -->
+        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
+            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
+                <ImageButton Grid.Column="0"
+                     Source="flecha.png"
+                     BackgroundColor="Transparent"
+                     WidthRequest="30"
+                     Clicked="btn_Regresar"
+                     HeightRequest="30"/>
 
-                <Button
-                    Grid.Column="0"
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    Clicked="btn_Regresar"
-                    CornerRadius="0"
-                    FontSize="24"
-                    HeightRequest="40"
-                    Text="←"
-                    TextColor="Black"
-                    WidthRequest="40" />
+                <Label Grid.Column="1"
+               FontAttributes="Bold"
+               FontSize="24"
+               HorizontalOptions="Center"
+               Text="Travel Tech"
+               TextColor="Black"
+               VerticalOptions="Center" />
 
-                <Label
-                    Grid.Column="1"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Center"
-                    Text="Travel Tech"
-                    TextColor="Black"
-                    VerticalOptions="Center" />
-
-                <Button
-                    Grid.Column="2"
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    CornerRadius="0"
-                    FontSize="22"
-                    HeightRequest="40"
-                    Text="✈"
-                    TextColor="Black"
-                    WidthRequest="40" />
+                <ImageButton Grid.Column="2"
+                     Source="avion.png"
+                     BackgroundColor="Transparent"
+                     WidthRequest="35"
+                     HeightRequest="35"/>
             </Grid>
         </Frame>
 

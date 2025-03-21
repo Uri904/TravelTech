@@ -78,7 +78,7 @@ namespace TravelTech.Views.Gastos
         // Evento del Botón Eliminar
         private async void EliminarButton_Clicked(object sender, EventArgs e)
         {
-            var button = (Button)sender;
+            var button = (ImageButton)sender;
             var gastoId = (int)button.CommandParameter;
 
             bool confirm = await DisplayAlert("Confirmación", "¿Estás seguro de que quieres eliminar este gasto?", "Sí", "No");

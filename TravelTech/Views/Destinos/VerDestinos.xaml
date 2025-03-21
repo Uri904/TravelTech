@@ -53,7 +53,7 @@
                             <Button Text="{Binding nombre}" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
                                 Clicked="ToggleParis" x:Name="btnParis" />
 
-                                        <StackLayout x:Name="contentParis" IsVisible="False">
+                                <StackLayout x:Name="contentParis" IsVisible="False">
 
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Prioridad: " FontSize="16" />
