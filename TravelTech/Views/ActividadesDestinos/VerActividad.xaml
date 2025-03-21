@@ -2,22 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TravelTech.Views.ActividadesDestinos.VerActividad"
-             NavigationPage.HasNavigationBar="False"
              BackgroundColor="#F5F5F5"
-             Title="Travel Tech">
+             NavigationPage.HasNavigationBar="False">
 
     <Grid RowDefinitions="Auto,*,Auto">
         <!-- Top Menu Bar -->
         <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
             <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                <Button Grid.Column="0" Text="☰" FontSize="24" BackgroundColor="Transparent" TextColor="Black" WidthRequest="40" HeightRequest="40" Clicked="btn_Home"/>
-                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
-                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" WidthRequest="40" HeightRequest="40"/>
+                <ImageButton Grid.Column="0"
+                             Source="barras.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             Clicked="btn_Home"
+                             HeightRequest="30"/>
+
+                <Label Grid.Column="1"
+                       FontAttributes="Bold"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       Text="Travel Tech"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+
+                <ImageButton Grid.Column="2"
+                             Source="avion.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="35"
+                             HeightRequest="35"/>
             </Grid>
         </Frame>
 
+
         <!-- Main Content -->
-        <ScrollView Grid.Row="1">
+        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
             <StackLayout Padding="20,15">
                 <Label Text="Actividades" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15"/>
 
@@ -79,14 +96,55 @@
                     <Button Text="Ver recordatorios" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_VerRecordatorios"/>
                     <Button Text="Agregar actividad" BackgroundColor="#2196F3" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_CrearActividad"/>
                 </StackLayout>
+                
             </StackLayout>
+            
         </ScrollView>
-        <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*" BackgroundColor="#A5CAEF" Padding="10">
-            <Button Grid.Column="0" Text="📜" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_Detalles"
-                    />
-            <Button Grid.Column="1" Text="📍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Button Grid.Column="2" Text="🚴🏻‍" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Button Grid.Column="3" Text="💵" FontSize="30" BackgroundColor="#A5CAEF" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" Clicked="btn_VerGastos"/>
+
+        <!-- Bottom Navigation Bar -->
+        <Grid Grid.Row="2" BackgroundColor="#A5CAEF" ColumnDefinitions="*,Auto,*,*" HeightRequest="38" Padding="0,10">
+
+            <ImageButton
+Source="hoja.png"
+HeightRequest="40"
+WidthRequest="40"
+Grid.Column="0"
+BackgroundColor="#A5CAEF"
+HorizontalOptions="Center"
+VerticalOptions="Center"
+Clicked="btn_Detalles" />
+
+            <!-- Contenedor para botón flotante -->
+            <Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                <ImageButton
+    Source="maps.png"
+    Clicked="btn_VerDestino"
+    HeightRequest="40"
+    WidthRequest="40"
+    BackgroundColor="#A5CAEF"
+    HorizontalOptions="Center"
+    Margin="5,4,5,5"
+    VerticalOptions="Center" />
+            </Grid>
+
+            <ImageButton
+Source="bici.png"
+Grid.Column="2"
+HeightRequest="45"
+WidthRequest="45"
+BackgroundColor="#A5CAEF"
+HorizontalOptions="Center"
+VerticalOptions="Center" />
+
+            <ImageButton
+Source="billete.png"
+Grid.Column="3"
+BackgroundColor="#A5CAEF"
+Clicked="btn_VerGastos"
+HeightRequest="45"
+WidthRequest="45"
+HorizontalOptions="Center"
+VerticalOptions="Center" />
         </Grid>
 
     </Grid>

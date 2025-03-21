@@ -126,57 +126,53 @@
             </StackLayout>
         </ScrollView>
 
-        <Grid
-            BackgroundColor="#A5CAEF"
-            ColumnDefinitions="*,Auto,*,*"
-            Grid.Row="2">
+        <!-- Bottom Navigation Bar -->
+        <Grid Grid.Row="2" BackgroundColor="#A5CAEF" ColumnDefinitions="*,Auto,*,*" HeightRequest="38" Padding="0,10">
 
             <ImageButton
-                Source="hoja.png"
-                HeightRequest="31"
-                WidthRequest="31"
-                Grid.Column="0"
-                BackgroundColor="#A5CAEF"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+Source="hoja.png"
+HeightRequest="40"
+WidthRequest="40"
+Grid.Column="0"
+BackgroundColor="#A5CAEF"
+HorizontalOptions="Center"
+VerticalOptions="Center"/>
 
-            <!--  Contenedor para el botón flotante que sea más grande que la barra  -->
-            <Grid
-                Grid.Column="1"
-                HorizontalOptions="Center"
-                VerticalOptions="Center">
-                <!--  El botón se coloca con un margen negativo para que sobresalga de la barra  -->
+            <!-- Contenedor para botón flotante -->
+            <Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
                 <ImageButton
-                    Source="maps"
-                    HeightRequest="31"
-                    WidthRequest="31"
-                    BackgroundColor="#A5CAEF"
-                    Clicked="btn_Destino"
-                    HorizontalOptions="Center"
-                    Margin="5,4,5,5"
-                    VerticalOptions="Center" />
+    Source="maps.png"
+    Clicked="btn_Destino"
+    HeightRequest="40"
+    WidthRequest="40"
+    BackgroundColor="#A5CAEF"
+    HorizontalOptions="Center"
+    Margin="5,4,5,5"
+    VerticalOptions="Center" />
             </Grid>
 
             <ImageButton
-                Source="bici.png"
-                Grid.Column="2"
-                HeightRequest="40"
-                WidthRequest="40"
-                BackgroundColor="#A5CAEF"
-                Clicked="btn_Actividades"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+Source="bici.png"
+Clicked="btn_Actividades"
+Grid.Column="2"
+HeightRequest="45"
+WidthRequest="45"
+BackgroundColor="#A5CAEF"
+HorizontalOptions="Center"
+VerticalOptions="Center" />
 
             <ImageButton
-                Source="billete.png"
-                Grid.Column="3"
-                BackgroundColor="#A5CAEF"
-                Clicked="btn_Gastos"
-                HeightRequest="40"
-                WidthRequest="40"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+Source="billete.png"
+Grid.Column="3"
+BackgroundColor="#A5CAEF"
+Clicked="btn_Gastos"
+HeightRequest="45"
+WidthRequest="45"
+HorizontalOptions="Center"
+VerticalOptions="Center" />
         </Grid>
+
+
     </Grid>
 
 </ContentPage>

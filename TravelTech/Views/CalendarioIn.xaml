@@ -9,12 +9,25 @@
         <!-- Top Menu Bar -->
         <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
             <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                <Button x:Name="MenuButton" Grid.Column="0" Text="≡" FontSize="24" BackgroundColor="Transparent" TextColor="Black" Clicked="btn_Home"
-                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
-                <Label Grid.Column="1" Text="Travel Tech" FontSize="18" FontAttributes="Bold" 
-                      VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black"/>
-                <Button Grid.Column="2" Text="✈" FontSize="22" BackgroundColor="Transparent" TextColor="Black" 
-                      WidthRequest="40" HeightRequest="40" CornerRadius="0" Padding="0" />
+                <ImageButton Grid.Column="0"
+                             Source="barras.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"/>
+
+                <Label Grid.Column="1"
+                       FontAttributes="Bold"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       Text="Travel Tech"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+
+                <ImageButton Grid.Column="2"
+                             Source="avion.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="35"
+                             HeightRequest="35"/>
             </Grid>
         </Frame>
 
@@ -100,7 +113,7 @@
 
         <!-- Bottom Navigation Bar -->
         <Grid Grid.Row="2" ColumnDefinitions="*,Auto,*" BackgroundColor="#A5CAEF">
-            <Button Grid.Column="0" Text="🏠" FontSize="24" BackgroundColor="Transparent" Clicked="btn_MisViajes" />
+            <ImageButton Source="casa.png" HeightRequest="20" WidthRequest="20" Scale=".5" Grid.Column="0" BackgroundColor="Transparent" Clicked="btn_MisViajes" />
             
             <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
 
@@ -123,7 +136,7 @@
 
             </Grid>
             
-            <Button Grid.Column="2" Text="📅" FontSize="24" BackgroundColor="Transparent" />
+            <ImageButton Grid.Column="2" Source="calendar.png" Scale=".6" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent" />
         </Grid>
     </Grid>
 </ContentPage>
