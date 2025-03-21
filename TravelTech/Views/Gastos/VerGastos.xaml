@@ -47,7 +47,7 @@
 
                 
                 <!-- ListView de Gastos -->
-                <ListView x:Name="listaGastos" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="200">
+                <ListView x:Name="listaGastos" HasUnevenRows="True" SeparatorVisibility="None" HeightRequest="200" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -57,30 +57,31 @@
                                             <Label Text="{Binding Categoria}" FontSize="16" TextColor="Black"/>
                                             <Label Text="{Binding Fecha_gasto}" FontSize="14" TextColor="Gray"/>
                                         </StackLayout>
-                                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="10">
+                                        
+                                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="12">
                                             <!-- Botón Actualizar -->
-                                            <Frame BackgroundColor="Green" CornerRadius="40" Padding="5">
+                                            <Frame BackgroundColor="Green" CornerRadius="40">
                                                 <ImageButton Source="pencil.png"
                                              BackgroundColor="Transparent"
-                                             WidthRequest="35"
-                                             HeightRequest="35"
-                                             Scale=".7"
+                                             WidthRequest="5"
+                                             HeightRequest="5"
+                                             Scale="4"
                                              Command="{Binding BindingContext.ActualizarCommand, Source={x:Reference listaGastos}}" 
                                              CommandParameter="{Binding Id}"/>
                                             </Frame>
 
                                             <!-- Botón Eliminar -->
-                                            <Frame BackgroundColor="Red" CornerRadius="40" Padding="5">
+                                            <Frame BackgroundColor="Red" CornerRadius="40">
                                                 <ImageButton Source="basura.png" 
                                              BackgroundColor="Transparent"
-                                             WidthRequest="35"
-                                             HeightRequest="35"
-                                             Scale=".7"
+                                             WidthRequest="5"
+                                             HeightRequest="5"
+                                             Scale="4"
                                              Clicked="EliminarButton_Clicked" CommandParameter="{Binding Id}"/>
                                             </Frame>
                                         </StackLayout>
 
-                                        <Label Text="{Binding Monto, StringFormat='${0:0.##}'}" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End"/>
+                                        <Label Text="{Binding Monto, StringFormat='${0:0.##}'}" FontSize="16" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" Margin="0,10,0,0"/>
                                     </Grid>
                                 </Frame>
                             </ViewCell>

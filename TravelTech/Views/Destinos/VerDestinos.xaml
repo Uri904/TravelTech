@@ -39,50 +39,45 @@
                 <Label Text="Destinos" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
 
                 <!-- Lista de Destinos -->
-                <ListView
-                    x:Name="listaViajes"
-                    HasUnevenRows="True"
-                    SelectionMode="None"
-                    SeparatorVisibility="None">
+                <ListView x:Name="listaViajes" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None" Margin="0,20,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                            
-                    <Frame Padding="20"  CornerRadius="10" HasShadow="True" BackgroundColor="White">
-                        <StackLayout>
-                            <Button Text="{Binding nombre}" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000"
-                                Clicked="ToggleParis" x:Name="btnParis" />
+                                <StackLayout>
+                                    <!-- Tarjeta del destino -->
+                                    <Frame Padding="20" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+                                        <StackLayout>
+                                            <Button Text="{Binding nombre}" FontSize="18" FontAttributes="Bold" BackgroundColor="Transparent" TextColor="#000" Clicked="ToggleParis" x:Name="btnParis" />
 
-                                <StackLayout x:Name="contentParis" IsVisible="False">
+                                            <StackLayout x:Name="contentParis" IsVisible="False">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="Prioridad: " FontSize="16" />
+                                                    <Label Text="{Binding prioridad}" FontSize="16" FontAttributes="Bold" />
+                                                </StackLayout>
 
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Prioridad: " FontSize="16" />
-                                    <Label Text="{Binding prioridad}" FontSize="16" FontAttributes="Bold" />
+                                                <Label Text="Notas:" FontSize="16" />
+
+                                                <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
+                                                    <Label Text="{Binding nota}" TextColor="#666" />
+                                                </Frame>
+
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                                    <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar" CommandParameter="{Binding Id}"/>
+                                                    <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" Clicked="btn_EliminarDestino" CommandParameter="{Binding Id}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+
+                                    <!-- Separador (Línea gris entre registros) -->
+                                    <BoxView HeightRequest="0" BackgroundColor="#F5F5F5" Margin="10,5,10,5" />
+
                                 </StackLayout>
-
-                                <Label Text="Notas:" FontSize="16" />
-
-                                <Frame Padding="10" CornerRadius="5" HasShadow="False" BorderColor="#DDDDDD" BackgroundColor="#EDEDED">
-                                    <Label Text="{Binding nota}" TextColor="#666" />
-                                </Frame>
-
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
-                                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" Clicked="BtnEditar"   CommandParameter="{Binding Id}"
-/>
-                                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5" Clicked="btn_EliminarDestino"  CommandParameter="{Binding Id}"
- />
-                                </StackLayout>
-
-                            </StackLayout>
-                        </StackLayout>
-                    </Frame>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
                     
-
-
 
                 <!-- Botón Agregar -->
                 <Button Text="Agregar destino" BackgroundColor="#2196F3" Margin="0,-500,0,0" TextColor="White" CornerRadius="5" HeightRequest="50" Clicked="btn_AgregarDestino"/>
@@ -92,47 +87,43 @@
         <!-- Bottom Navigation Bar -->
         <Grid Grid.Row="2" BackgroundColor="#A5CAEF" ColumnDefinitions="*,Auto,*,*" HeightRequest="38" Padding="0,10">
 
-            <ImageButton
-        Source="hoja.png"
-        HeightRequest="40"
-        WidthRequest="40"
-        Grid.Column="0"
-        BackgroundColor="#A5CAEF"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"
-        Clicked="btn_Detalles" />
+            <ImageButton Source="hoja.png"
+                         HeightRequest="40"
+                         WidthRequest="40"
+                         Grid.Column="0"
+                         BackgroundColor="#A5CAEF"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Clicked="btn_Detalles" />
 
             <!-- Contenedor para botón flotante -->
             <Grid Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
-                <ImageButton
-            Source="maps.png"
-            HeightRequest="40"
-            WidthRequest="40"
-            BackgroundColor="#A5CAEF"
-            HorizontalOptions="Center"
-            Margin="5,4,5,5"
-            VerticalOptions="Center" />
+                <ImageButton Source="maps.png"
+                             HeightRequest="40"
+                             WidthRequest="40"
+                             BackgroundColor="#A5CAEF"
+                             HorizontalOptions="Center"
+                             Margin="5,4,5,5"
+                             VerticalOptions="Center" />
             </Grid>
 
-            <ImageButton
-        Source="bici.png"
-        Grid.Column="2"
-        HeightRequest="45"
-        WidthRequest="45"
-        BackgroundColor="#A5CAEF"
-        Clicked="btn_Actividades"
-        HorizontalOptions="Center"
-        VerticalOptions="Center" />
+            <ImageButton Source="bici.png"
+                         Grid.Column="2"
+                         HeightRequest="45"
+                         WidthRequest="45"
+                         BackgroundColor="#A5CAEF"
+                         Clicked="btn_Actividades"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center" />
 
-            <ImageButton
-        Source="billete.png"
-        Grid.Column="3"
-        BackgroundColor="#A5CAEF"
-        Clicked="btn_VerGastos"
-        HeightRequest="45"
-        WidthRequest="45"
-        HorizontalOptions="Center"
-        VerticalOptions="Center" />
+            <ImageButton Source="billete.png"
+                         Grid.Column="3"
+                         BackgroundColor="#A5CAEF"
+                         Clicked="btn_VerGastos"
+                         HeightRequest="45"
+                         WidthRequest="45"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center" />
         </Grid>
 
     </Grid>
