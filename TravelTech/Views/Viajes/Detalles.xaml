@@ -19,35 +19,27 @@
                 Padding="10,5"
                 ColumnDefinitions="Auto,*,Auto"
                 HeightRequest="50">
-                <Button
-                    Grid.Column="0"
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    Clicked="btn_Home"
-                    CornerRadius="0"
-                    FontSize="24"
-                    HeightRequest="40"
-                    Text="≡"
-                    TextColor="Black"
-                    WidthRequest="40" />
-                <Label
-                    Grid.Column="1"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Center"
-                    Text="Travel Tech"
-                    TextColor="Black"
-                    VerticalOptions="Center" />
-                <Button
-                    Grid.Column="2"
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    CornerRadius="0"
-                    FontSize="22"
-                    HeightRequest="40"
-                    Text="✈"
-                    TextColor="Black"
-                    WidthRequest="40" />
+                
+                <ImageButton Grid.Column="0"
+                             Source="barras.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             Clicked="btn_Home"/>
+
+                <Label Grid.Column="1"
+                       FontAttributes="Bold"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       Text="Travel Tech"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+
+                <ImageButton Grid.Column="2"
+                             Source="avion.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="35"
+                             HeightRequest="35"/>
             </Grid>
         </Frame>
 
@@ -139,13 +131,13 @@
             ColumnDefinitions="*,Auto,*,*"
             Grid.Row="2">
 
-            <Button
+            <ImageButton
+                Source="hoja.png"
+                HeightRequest="31"
+                WidthRequest="31"
                 Grid.Column="0"
                 BackgroundColor="#A5CAEF"
-                FontSize="30"
                 HorizontalOptions="Center"
-                Text="📜"
-                TextColor="White"
                 VerticalOptions="Center" />
 
             <!--  Contenedor para el botón flotante que sea más grande que la barra  -->
@@ -154,35 +146,35 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
                 <!--  El botón se coloca con un margen negativo para que sobresalga de la barra  -->
-                <Button
+                <ImageButton
+                    Source="maps"
+                    HeightRequest="31"
+                    WidthRequest="31"
                     BackgroundColor="#A5CAEF"
                     Clicked="btn_Destino"
-                    FontSize="30"
                     HorizontalOptions="Center"
                     Margin="5,4,5,5"
-                    Text="📍"
-                    TextColor="White"
                     VerticalOptions="Center" />
             </Grid>
 
-            <Button
+            <ImageButton
+                Source="bici.png"
                 Grid.Column="2"
+                HeightRequest="40"
+                WidthRequest="40"
                 BackgroundColor="#A5CAEF"
                 Clicked="btn_Actividades"
-                FontSize="30"
                 HorizontalOptions="Center"
-                Text="🚴🏻‍"
-                TextColor="White"
                 VerticalOptions="Center" />
 
-            <Button
+            <ImageButton
+                Source="billete.png"
                 Grid.Column="3"
                 BackgroundColor="#A5CAEF"
                 Clicked="btn_Gastos"
-                FontSize="30"
+                HeightRequest="40"
+                WidthRequest="40"
                 HorizontalOptions="Center"
-                Text="💵"
-                TextColor="White"
                 VerticalOptions="Center" />
         </Grid>
     </Grid>

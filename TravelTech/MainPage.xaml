@@ -19,35 +19,27 @@
                 Padding="10,5"
                 ColumnDefinitions="Auto,*,Auto"
                 HeightRequest="50">
-                <Button
-                    Grid.Column="0"
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    CornerRadius="0"
-                    FontSize="24"
-                    HeightRequest="40"
-                    Text="≡"
-                    TextColor="Black"
-                    WidthRequest="40" />
-                <Label
-                    Grid.Column="1"
-                    FontAttributes="Bold"
-                    FontSize="18"
-                    HorizontalOptions="Center"
-                    Text="Travel Tech"
-                    TextColor="Black"
-                    VerticalOptions="Center" />
-                <Button
-                    Grid.Column="2"
-                    Padding="0"
-                    BackgroundColor="Transparent"
-                    CornerRadius="0"
-                    FontSize="22"
-                    HeightRequest="40"
-                    Text="✈"
-                    TextColor="Black"
-                    WidthRequest="40" />
+                <ImageButton Grid.Column="0"
+                             Source="barras.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="30"
+                             HeightRequest="30"/>
+
+                <Label Grid.Column="1"
+                       FontAttributes="Bold"
+                       FontSize="24"
+                       HorizontalOptions="Center"
+                       Text="Travel Tech"
+                       TextColor="Black"
+                       VerticalOptions="Center" />
+                
+                <ImageButton Grid.Column="2"
+                             Source="avion.png"
+                             BackgroundColor="Transparent"
+                             WidthRequest="35"
+                             HeightRequest="35"/>
             </Grid>
+            
         </Frame>
 
         <!--  Main Content  -->
@@ -130,19 +122,24 @@
                                                 HorizontalOptions="Start"
                                                 Text="VER DETALLES"
                                                 TextColor="White" />
-                                            <Button
-                                                Grid.Column="1"
-                                                Padding="0"
-                                                BackgroundColor="Red"
-                                                Clicked="btn_EliminarViaje"
-                                                CommandParameter="{Binding Id}"
-                                                CornerRadius="15"
-                                                HeightRequest="30"
-                                                HorizontalOptions="End"
-                                                ImageSource="trash_icon.png"
-                                                Margin="0,0,10,0"
-                                                VerticalOptions="Center"
-                                                WidthRequest="30" />
+
+                                            <Grid Grid.Column="1">
+                                                <Frame CornerRadius="40" BackgroundColor="Red">
+                                                    
+                                                <!-- Imagen superpuesta al botón -->
+                                                <ImageButton
+                                                    Source="basura.png"
+                                                    WidthRequest="1"
+                                                    HeightRequest="1"
+                                                    Scale="14.5"
+                                                    BackgroundColor="Transparent"
+                                                    CommandParameter="{Binding Id}" 
+                                                    Clicked="btn_EliminarViaje" />
+                                                </Frame>
+
+                                            </Grid>
+
+
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
@@ -159,12 +156,13 @@
             ColumnDefinitions="*,Auto,*"
             Grid.Row="2">
             <!--  Botón de Inicio  -->
-            <Button
+            <ImageButton
                 Grid.Column="0"
                 BackgroundColor="Transparent"
-                FontSize="24"
                 HorizontalOptions="Center"
-                Text="🏠"
+                Source="casa.png"
+                HeightRequest="35"
+                WidthRequest="35"
                 VerticalOptions="Center" />
 
             <!--  Contenedor para el botón flotante que sea más grande que la barra  -->
@@ -188,9 +186,9 @@
                     <Button
                         BackgroundColor="#214B81"
                         Clicked="btn_CrearViaje"
-                        FontSize="36"
+                        FontSize="40"
                         HorizontalOptions="Center"
-                        Margin="-5"
+                        Margin="-12"
                         Text="+"
                         TextColor="White"
                         VerticalOptions="Center" />
@@ -198,14 +196,15 @@
             </Grid>
 
 
-            <Button
+            <ImageButton
                 Grid.Column="2"
                 BackgroundColor="Transparent"
                 Clicked="btn_Calendario"
-                FontSize="24"
                 HorizontalOptions="Center"
-                Text="📅"
-                VerticalOptions="Center" />
+                VerticalOptions="Center" 
+                Source="calendar.png"
+                HeightRequest="35"
+                WidthRequest="35"/>
         </Grid>
     </Grid>
 </ContentPage>

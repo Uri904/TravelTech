@@ -107,8 +107,14 @@ namespace TravelTech
 
         private void btn_EliminarViaje(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var viajeId = (int)button.CommandParameter;
+            var imageButton = (ImageButton)sender;
+            var viajeId = (int)imageButton.CommandParameter;  // Obtenemos el Id del viaje desde el CommandParameter
+
+            if (viajeId <= 0)
+            {
+                DisplayAlert("Error", "El Id del viaje no es válido", "OK");
+                return;
+            }
 
             // Confirmar y eliminar
             Device.BeginInvokeOnMainThread(async () =>
@@ -116,22 +122,31 @@ namespace TravelTech
                 bool confirmar = await DisplayAlert("Confirmar", "¿Estás seguro de eliminar este viaje?", "Sí", "No");
                 if (confirmar)
                 {
-                    using (SQLiteConnection conn = new SQLiteConnection(dbPath))
+                    try
                     {
-                        // Primero eliminar los registros relacionados
-                        conn.Execute("DELETE FROM T_Actividad WHERE PK_id_viaje = ?", viajeId);
-                        conn.Execute("DELETE FROM T_Gasto WHERE PK_id_viaje = ?", viajeId);
-                        conn.Execute("DELETE FROM T_Destino WHERE PK_id_viaje = ?", viajeId);
+                        using (SQLiteConnection conn = new SQLiteConnection(dbPath))
+                        {
+                            // Eliminar los registros relacionados
+                            conn.Execute("DELETE FROM T_Actividad WHERE PK_id_viaje = ?", viajeId);
+                            conn.Execute("DELETE FROM T_Gasto WHERE PK_id_viaje = ?", viajeId);
+                            conn.Execute("DELETE FROM T_Destino WHERE PK_id_viaje = ?", viajeId);
 
-                        // Luego eliminar el viaje
-                        conn.Delete<T_Viaje>(viajeId);
+                            // Eliminar el viaje
+                            conn.Delete<T_Viaje>(viajeId);
+                        }
+
+                        // Recargar viajes
+                        CargarViajes();
                     }
-
-                    // Recargar viajes
-                    CargarViajes();
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert("Error", $"No se pudo eliminar el viaje: {ex.Message}", "OK");
+                    }
                 }
             });
         }
+
+
 
         private void btn_Calendario(object sender, EventArgs e)
         {
