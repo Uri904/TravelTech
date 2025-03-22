@@ -39,7 +39,7 @@
                 <Label Text="Destinos" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
 
                 <!-- Lista de Destinos -->
-                <ListView x:Name="listaViajes" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None" Margin="0,20,0,0">
+                <ListView x:Name="lDestinos" HasUnevenRows="True" SelectionMode="None" SeparatorVisibility="None" Margin="0,20,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

@@ -50,7 +50,7 @@ namespace TravelTech.Views.Destinos
                     }
 
                     // Asignar a ListView
-                    listaViajes.ItemsSource = destinoDisplay;
+                    lDestinos.ItemsSource = destinoDisplay;
                 }
             }
             catch (Exception ex)

@@ -88,13 +88,13 @@ namespace TravelTech.Views.Destinos
                 // Validar datos
                 if (string.IsNullOrWhiteSpace(nombreEntry.Text))
                 {
-                    await DisplayAlert("Error", "El nombre del viaje es obligatorio", "OK");
+                    await DisplayAlert("Error", "El nombre del destino es obligatorio", "OK");
                     return;
                 }
 
                 if (string.IsNullOrWhiteSpace(notaEntry.Text))
                 {
-                    await DisplayAlert("Error", "La nota del viaje es obligatorio", "OK");
+                    await DisplayAlert("Error", "La nota del viaje es obligatoria", "OK");
                     return;
                 }
                 string prioridadSeleccionada = null;
