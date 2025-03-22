@@ -1,7 +1,5 @@
-﻿using System;
-using TravelTech;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using TravelTech.Views;
 
 namespace TravelTech
 {
@@ -10,9 +8,18 @@ namespace TravelTech
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage()); // Permite la navegación
 
-            //MainPage = new MainPage();
+            // Crear el FlyoutPage
+            var flyout = new FlyoutPage();
+
+            // Configurar la página del menú (Master)
+            flyout.Flyout = new MenuLateral();
+
+            // Configurar la página principal (Detail)
+            flyout.Detail = new NavigationPage(new MainPage());
+
+            // Establecer como página principal
+            MainPage = flyout;
         }
 
         protected override void OnStart()

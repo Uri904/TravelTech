@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TravelTech.Views.MenuLateral"
+             Title="Menú"
+             BackgroundColor="#214B81">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MenuItemStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="#A5CAEF" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="15" />
+                <Setter Property="Margin" Value="0,5" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*,Auto">
+        <!-- Contenido principal del menú -->
+        <ScrollView Grid.Row="0">
+            <StackLayout Padding="20">
+                <Image Source="avion.png" 
+                       HeightRequest="80" 
+                       WidthRequest="80"
+                       HorizontalOptions="Center"
+                       Margin="0,20,0,30"/>
+
+                <Label Text="Travel Tech" 
+                       TextColor="White" 
+                       FontSize="24" 
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,30"/>
+
+                <!-- Inicio -->
+                <Frame Style="{StaticResource MenuItemStyle}">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="casa.png" WidthRequest="25" HeightRequest="25"/>
+                        <Label Text="Inicio" 
+                               TextColor="Black" 
+                               FontSize="18" 
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="IrAInicio"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Viajes (Desplegable) -->
+                <Frame Style="{StaticResource MenuItemStyle}">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="avion.png" WidthRequest="25" HeightRequest="25"/>
+                            <Label Text="Mis Viajes" 
+                                   TextColor="Black" 
+                                   FontSize="18" 
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   Margin="15,0,0,0"/>
+                            <Image x:Name="imgViajesFlecha" 
+                                   Source="flecha_abajo.png" 
+                                   WidthRequest="20" 
+                                   HeightRequest="20"
+                                   VerticalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ToggleViajesLista"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Lista de Viajes (inicialmente oculta) -->
+                <StackLayout x:Name="listaViajesMenu" IsVisible="false" Margin="15,0,0,0">
+                    <!-- Aquí se agregarán dinámicamente los viajes -->
+                </StackLayout>
+
+                <!-- Calendario -->
+                <Frame Style="{StaticResource MenuItemStyle}">
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="calendar.png" WidthRequest="25" HeightRequest="25"/>
+                        <Label Text="Calendario" 
+                               TextColor="Black" 
+                               FontSize="18" 
+                               VerticalOptions="Center"
+                               Margin="15,0,0,0"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="IrACalendario"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <!-- Puedes agregar más opciones aquí -->
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Footer con copyright -->
+        <StackLayout Grid.Row="1" 
+                     BackgroundColor="#193863" 
+                     Padding="15,10">
+            <Label Text="© 2025 BitDev. Todos los derechos reservados." 
+                   TextColor="White" 
+                   FontSize="12" 
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

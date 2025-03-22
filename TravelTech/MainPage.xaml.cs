@@ -154,5 +154,11 @@ namespace TravelTech
             Navigation.PushAsync(new Views.CalendarioIn());
             // Implementación después
         }
+
+        private void btn_AbrirMenu(object sender, EventArgs e)
+        {
+            // Mostrar el menú lateral
+            (Application.Current.MainPage as FlyoutPage).IsPresented = true;
+        }
     }
 }

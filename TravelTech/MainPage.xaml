@@ -19,27 +19,31 @@
                 Padding="10,5"
                 ColumnDefinitions="Auto,*,Auto"
                 HeightRequest="50">
-                <ImageButton Grid.Column="0"
-                             Source="barras.png"
-                             BackgroundColor="Transparent"
-                             WidthRequest="30"
-                             HeightRequest="30"/>
+                <ImageButton
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    Clicked="btn_AbrirMenu"
+                    HeightRequest="30"
+                    Source="barras.png"
+                    WidthRequest="30" />
 
-                <Label Grid.Column="1"
-                       FontAttributes="Bold"
-                       FontSize="24"
-                       HorizontalOptions="Center"
-                       Text="Travel Tech"
-                       TextColor="Black"
-                       VerticalOptions="Center" />
-                
-                <ImageButton Grid.Column="2"
-                             Source="avion.png"
-                             BackgroundColor="Transparent"
-                             WidthRequest="35"
-                             HeightRequest="35"/>
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    Text="Travel Tech"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+
+                <ImageButton
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    HeightRequest="35"
+                    Source="avion.png"
+                    WidthRequest="35" />
             </Grid>
-            
+
         </Frame>
 
         <!--  Main Content  -->
@@ -124,17 +128,17 @@
                                                 TextColor="White" />
 
                                             <Grid Grid.Column="1">
-                                                <Frame CornerRadius="40" BackgroundColor="Red">
-                                                    
-                                                <!-- Imagen superpuesta al botón -->
-                                                <ImageButton
-                                                    Source="basura.png"
-                                                    WidthRequest="1"
-                                                    HeightRequest="1"
-                                                    Scale="14.5"
-                                                    BackgroundColor="Transparent"
-                                                    CommandParameter="{Binding Id}" 
-                                                    Clicked="btn_EliminarViaje" />
+                                                <Frame BackgroundColor="Red" CornerRadius="40">
+
+                                                    <!--  Imagen superpuesta al botón  -->
+                                                    <ImageButton
+                                                        BackgroundColor="Transparent"
+                                                        Clicked="btn_EliminarViaje"
+                                                        CommandParameter="{Binding Id}"
+                                                        HeightRequest="1"
+                                                        Scale="14.5"
+                                                        Source="basura.png"
+                                                        WidthRequest="1" />
                                                 </Frame>
 
                                             </Grid>
@@ -159,11 +163,11 @@
             <ImageButton
                 Grid.Column="0"
                 BackgroundColor="Transparent"
+                HeightRequest="35"
                 HorizontalOptions="Center"
                 Source="casa.png"
-                HeightRequest="35"
-                WidthRequest="35"
-                VerticalOptions="Center" />
+                VerticalOptions="Center"
+                WidthRequest="35" />
 
             <!--  Contenedor para el botón flotante que sea más grande que la barra  -->
             <Grid
@@ -200,11 +204,11 @@
                 Grid.Column="2"
                 BackgroundColor="Transparent"
                 Clicked="btn_Calendario"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" 
-                Source="calendar.png"
                 HeightRequest="35"
-                WidthRequest="35"/>
+                HorizontalOptions="Center"
+                Source="calendar.png"
+                VerticalOptions="Center"
+                WidthRequest="35" />
         </Grid>
     </Grid>
 </ContentPage>

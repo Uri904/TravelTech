@@ -1,142 +1,242 @@
-﻿<!-- CalendarioIn.xaml -->
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TravelTech.Views.CalendarioIn"
-             BackgroundColor="#F5F5F5"
-             NavigationPage.HasNavigationBar="False">
+﻿<!--  CalendarioIn.xaml  -->
+<ContentPage
+    BackgroundColor="#F5F5F5"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="TravelTech.Views.CalendarioIn"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <Grid RowDefinitions="Auto,*,60">
 
-        <!-- Top Menu Bar -->
-        <Frame Grid.Row="0" Padding="0" HasShadow="True" CornerRadius="0" BackgroundColor="White">
-            <Grid ColumnDefinitions="Auto,*,Auto" Padding="10,5" HeightRequest="50">
-                <ImageButton Grid.Column="0"
-                             Source="barras.png"
-                             BackgroundColor="Transparent"
-                             WidthRequest="30"
-                             HeightRequest="30"/>
+        <!--  Top Menu Bar  -->
+        <Frame
+            Padding="0"
+            BackgroundColor="White"
+            CornerRadius="0"
+            Grid.Row="0"
+            HasShadow="True">
+            <Grid
+                Padding="10,5"
+                ColumnDefinitions="Auto,*,Auto"
+                HeightRequest="50">
+                <ImageButton
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    Clicked="btn_AbrirMenu"
+                    HeightRequest="30"
+                    Source="barras.png"
+                    WidthRequest="30" />
 
-                <Label Grid.Column="1"
-                       FontAttributes="Bold"
-                       FontSize="24"
-                       HorizontalOptions="Center"
-                       Text="Travel Tech"
-                       TextColor="Black"
-                       VerticalOptions="Center" />
+                <Label
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    Text="Travel Tech"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
 
-                <ImageButton Grid.Column="2"
-                             Source="avion.png"
-                             BackgroundColor="Transparent"
-                             WidthRequest="35"
-                             HeightRequest="35"/>
+                <ImageButton
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    HeightRequest="35"
+                    Source="avion.png"
+                    WidthRequest="35" />
             </Grid>
         </Frame>
 
-        <!-- Main Content -->
-        <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
+        <!--  Main Content  -->
+        <ScrollView BackgroundColor="#F5F5F5" Grid.Row="1">
             <StackLayout Padding="15,10" Spacing="15">
-                <!-- Title -->
-                <Label Text="Mis recordatorios" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,10" />
+                <!--  Title  -->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="24"
+                    Margin="0,5,0,10"
+                    Text="Mis recordatorios"
+                    TextColor="Black" />
 
-                <!-- Calendar View -->
-                <Frame BackgroundColor="White" CornerRadius="10" HasShadow="True" Padding="10">
+                <!--  Calendar View  -->
+                <Frame
+                    Padding="10"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HasShadow="True">
                     <StackLayout>
-                        <!-- Month Navigation -->
+                        <!--  Month Navigation  -->
                         <Grid ColumnDefinitions="Auto,*,Auto" Margin="0,0,0,10">
-                            <Button x:Name="PreviousMonthButton" Grid.Column="0" Text="&lt;" 
-                                    Clicked="OnPreviousMonthClicked"
-                                    BackgroundColor="Transparent" TextColor="#214B81" />
-                            <Label x:Name="MonthYearLabel" Grid.Column="1" 
-                                   Text="{Binding CurrentMonthYear}" 
-                                   HorizontalOptions="Center" 
-                                   FontAttributes="Bold" />
-                            <Button x:Name="NextMonthButton" Grid.Column="2" Text="&gt;" 
-                                    Clicked="OnNextMonthClicked"
-                                    BackgroundColor="Transparent" TextColor="#214B81" />
+                            <Button
+                                x:Name="PreviousMonthButton"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                Clicked="OnPreviousMonthClicked"
+                                Text="&lt;"
+                                TextColor="#214B81" />
+                            <Label
+                                x:Name="MonthYearLabel"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center"
+                                Text="{Binding CurrentMonthYear}" />
+                            <Button
+                                x:Name="NextMonthButton"
+                                Grid.Column="2"
+                                BackgroundColor="Transparent"
+                                Clicked="OnNextMonthClicked"
+                                Text="&gt;"
+                                TextColor="#214B81" />
                         </Grid>
 
-                        <!-- Days of Week Header -->
+                        <!--  Days of Week Header  -->
                         <Grid ColumnDefinitions="*,*,*,*,*,*,*" Margin="0,0,0,5">
-                            <Label Grid.Column="0" Text="DOM" HorizontalOptions="Center" TextColor="#666" />
-                            <Label Grid.Column="1" Text="LUN" HorizontalOptions="Center" TextColor="#666" />
-                            <Label Grid.Column="2" Text="MAR" HorizontalOptions="Center" TextColor="#666" />
-                            <Label Grid.Column="3" Text="MIÉ" HorizontalOptions="Center" TextColor="#666" />
-                            <Label Grid.Column="4" Text="JUE" HorizontalOptions="Center" TextColor="#666" />
-                            <Label Grid.Column="5" Text="VIE" HorizontalOptions="Center" TextColor="#666" />
-                            <Label Grid.Column="6" Text="SÁB" HorizontalOptions="Center" TextColor="#666" />
+                            <Label
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Text="DOM"
+                                TextColor="#666" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                Text="LUN"
+                                TextColor="#666" />
+                            <Label
+                                Grid.Column="2"
+                                HorizontalOptions="Center"
+                                Text="MAR"
+                                TextColor="#666" />
+                            <Label
+                                Grid.Column="3"
+                                HorizontalOptions="Center"
+                                Text="MIÉ"
+                                TextColor="#666" />
+                            <Label
+                                Grid.Column="4"
+                                HorizontalOptions="Center"
+                                Text="JUE"
+                                TextColor="#666" />
+                            <Label
+                                Grid.Column="5"
+                                HorizontalOptions="Center"
+                                Text="VIE"
+                                TextColor="#666" />
+                            <Label
+                                Grid.Column="6"
+                                HorizontalOptions="Center"
+                                Text="SÁB"
+                                TextColor="#666" />
                         </Grid>
 
-                        <!-- Calendar Grid -->
-                        <Grid x:Name="CalendarGrid" 
-                              ColumnDefinitions="*,*,*,*,*,*,*" 
-                              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
-                            <!-- Se llenará dinámicamente en el código -->
+                        <!--  Calendar Grid  -->
+                        <Grid
+                            x:Name="CalendarGrid"
+                            ColumnDefinitions="*,*,*,*,*,*,*"
+                            RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto">
+                            <!--  Se llenará dinámicamente en el código  -->
                         </Grid>
                     </StackLayout>
                 </Frame>
 
-                <!-- Viajes/Recordatorios -->
-                <Label Text="Próximos Viajes" TextColor="Black" FontSize="18" FontAttributes="Bold" Margin="0,15,0,10" />
+                <!--  Viajes/Recordatorios  -->
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Margin="0,15,0,10"
+                    Text="Próximos Viajes"
+                    TextColor="Black" />
 
-                <!-- Viaje 1 -->
-                <Frame BackgroundColor="White" Padding="15" CornerRadius="10" HasShadow="True">
+                <!--  Viaje 1  -->
+                <Frame
+                    Padding="15"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HasShadow="True">
                     <Grid ColumnDefinitions="*,Auto">
                         <StackLayout Grid.Column="0">
-                            <Label Text="Viaje a Francia - Torre Eiffel" 
-                                   FontAttributes="Bold" />
+                            <Label FontAttributes="Bold" Text="Viaje a Francia - Torre Eiffel" />
                             <Label Text="1 de Septiembre, 2021" TextColor="#666" />
                         </StackLayout>
-                        <Button Text="Ver detalles" 
-                                BackgroundColor="#2196F3" 
-                                TextColor="White" 
-                                CornerRadius="20" 
-                                Grid.Column="1" />
+                        <Button
+                            Grid.Column="1"
+                            BackgroundColor="#2196F3"
+                            CornerRadius="20"
+                            Text="Ver detalles"
+                            TextColor="White" />
                     </Grid>
                 </Frame>
 
-                <!-- Viaje 2 -->
-                <Frame BackgroundColor="White" Padding="15" CornerRadius="10" HasShadow="True">
+                <!--  Viaje 2  -->
+                <Frame
+                    Padding="15"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HasShadow="True">
                     <Grid ColumnDefinitions="*,Auto">
                         <StackLayout Grid.Column="0">
-                            <Label Text="Viaje a Francia - Montmartre" 
-                                   FontAttributes="Bold" />
+                            <Label FontAttributes="Bold" Text="Viaje a Francia - Montmartre" />
                             <Label Text="19 de Septiembre, 2021" TextColor="#666" />
                         </StackLayout>
-                        <Button Text="Ver detalles" 
-                                BackgroundColor="#2196F3" 
-                                TextColor="White" 
-                                CornerRadius="20" 
-                                Grid.Column="1" />
+                        <Button
+                            Grid.Column="1"
+                            BackgroundColor="#2196F3"
+                            CornerRadius="20"
+                            Text="Ver detalles"
+                            TextColor="White" />
                     </Grid>
                 </Frame>
             </StackLayout>
         </ScrollView>
 
-        <!-- Bottom Navigation Bar -->
-        <Grid Grid.Row="2" ColumnDefinitions="*,Auto,*" BackgroundColor="#A5CAEF">
-            <ImageButton Source="casa.png" HeightRequest="20" WidthRequest="20" Scale=".5" Grid.Column="0" BackgroundColor="Transparent" Clicked="btn_MisViajes" />
-            
-            <Grid Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center">
+        <!--  Bottom Navigation Bar  -->
+        <Grid
+            BackgroundColor="#A5CAEF"
+            ColumnDefinitions="*,Auto,*"
+            Grid.Row="2">
+            <ImageButton
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                Clicked="btn_MisViajes"
+                HeightRequest="20"
+                Scale=".5"
+                Source="casa.png"
+                WidthRequest="20" />
 
-                <Frame BackgroundColor="#214B81" CornerRadius="30" 
-                      HeightRequest="60" WidthRequest="60" 
-                      Margin="0,-20,0,0"
-                      Padding="0" IsClippedToBounds="True" HasShadow="True"
-                      VerticalOptions="Center" HorizontalOptions="Center">
+            <Grid
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
 
-                    <Button Text="+" 
-                            BackgroundColor="#214B81"
-                            TextColor="White" 
-                            FontSize="36"
-                            Margin="-5"
-                            HorizontalOptions="Center" 
-                            VerticalOptions="Center"
-                            Clicked="btn_CrearViaje" />
+                <Frame
+                    Padding="0"
+                    BackgroundColor="#214B81"
+                    CornerRadius="30"
+                    HasShadow="True"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    Margin="0,-20,0,0"
+                    VerticalOptions="Center"
+                    WidthRequest="60">
+
+                    <Button
+                        BackgroundColor="#214B81"
+                        Clicked="btn_CrearViaje"
+                        FontSize="36"
+                        HorizontalOptions="Center"
+                        Margin="-5"
+                        Text="+"
+                        TextColor="White"
+                        VerticalOptions="Center" />
 
                 </Frame>
 
             </Grid>
-            
-            <ImageButton Grid.Column="2" Source="calendar.png" Scale=".6" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent" />
+
+            <ImageButton
+                Grid.Column="2"
+                BackgroundColor="Transparent"
+                HeightRequest="20"
+                Scale=".6"
+                Source="calendar.png"
+                WidthRequest="20" />
         </Grid>
     </Grid>
 </ContentPage>

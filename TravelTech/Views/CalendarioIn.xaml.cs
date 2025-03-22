@@ -118,10 +118,11 @@ namespace TravelTech.Views
             await Navigation.PushAsync(new Viajes.Crear());
         }
 
-
-
-
-
+        private void btn_AbrirMenu(object sender, EventArgs e)
+        {
+            // Mostrar el menú lateral
+            (Application.Current.MainPage as FlyoutPage).IsPresented = true;
+        }
 
     }
 }
