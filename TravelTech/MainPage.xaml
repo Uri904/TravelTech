@@ -8,7 +8,7 @@
 
     <Grid RowDefinitions="Auto,*,60">
 
-        <!--  Top Menu Bar  -->
+        <!--  Barra Superior  -->
         <Frame
             Padding="0"
             BackgroundColor="White"
