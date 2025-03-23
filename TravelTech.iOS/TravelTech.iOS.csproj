@@ -124,13 +124,13 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\TravelTech\TravelTech.csproj">
-      <Project>{54258FBD-EFF4-416C-84BA-2F5ACE458A60}</Project>
+      <Project>{C8CD09E3-1CA1-40DD-99DB-244577915ABB}</Project>
       <Name>TravelTech</Name>
     </ProjectReference>
   </ItemGroup>

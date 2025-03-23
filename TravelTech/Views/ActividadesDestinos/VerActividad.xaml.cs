@@ -79,7 +79,6 @@ namespace TravelTech.Views.ActividadesDestinos
         }
 
 
-
         protected override void OnAppearing()
         {
             base.OnAppearing();

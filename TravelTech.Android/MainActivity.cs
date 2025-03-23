@@ -3,7 +3,9 @@
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
+using Android.Content;
 using Android.OS;
+using AndroidX.Core.App;
 
 namespace TravelTech.Droid
 {
@@ -13,6 +15,8 @@ namespace TravelTech.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -24,5 +28,8 @@ namespace TravelTech.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        
+
     }
 }

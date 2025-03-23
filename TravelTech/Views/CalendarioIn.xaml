@@ -143,47 +143,13 @@
                     Text="Próximos Viajes"
                     TextColor="Black" />
 
-                <!--  Viaje 1  -->
-                <Frame
-                    Padding="15"
-                    BackgroundColor="White"
-                    CornerRadius="10"
-                    HasShadow="True">
-                    <Grid ColumnDefinitions="*,Auto">
-                        <StackLayout Grid.Column="0">
-                            <Label FontAttributes="Bold" Text="Viaje a Francia - Torre Eiffel" />
-                            <Label Text="1 de Septiembre, 2021" TextColor="#666" />
-                        </StackLayout>
-                        <Button
-                            Grid.Column="1"
-                            BackgroundColor="#2196F3"
-                            CornerRadius="20"
-                            Text="Ver detalles"
-                            TextColor="White" />
-                    </Grid>
-                </Frame>
+                
+               <!--  Lista de Próximos Viajes (Se llena dinámicamente)  -->
+<StackLayout x:Name="ProximosViajesStack" Spacing="10">
+    <!-- Aquí se agregarán los viajes dinámicamente desde C# -->
+</StackLayout>
 
-                <!--  Viaje 2  -->
-                <Frame
-                    Padding="15"
-                    BackgroundColor="White"
-                    CornerRadius="10"
-                    HasShadow="True">
-                    <Grid ColumnDefinitions="*,Auto">
-                        <StackLayout Grid.Column="0">
-                            <Label FontAttributes="Bold" Text="Viaje a Francia - Montmartre" />
-                            <Label Text="19 de Septiembre, 2021" TextColor="#666" />
-                        </StackLayout>
-                        <Button
-                            Grid.Column="1"
-                            BackgroundColor="#2196F3"
-                            CornerRadius="20"
-                            Text="Ver detalles"
-                            TextColor="White"
 
-                            />
-                    </Grid>
-                </Frame>
             </StackLayout>
         </ScrollView>
 

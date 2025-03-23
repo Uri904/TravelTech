@@ -5,6 +5,13 @@ using Xamarin.Forms;
 using SQLite;
 using System.IO;
 using TravelTech.Tablas;
+using System.Linq;
+using Xamarin.Essentials;
+using UserNotifications;
+
+
+
+
 
 namespace TravelTech.Views
 {
@@ -20,10 +27,12 @@ namespace TravelTech.Views
             _culture = new CultureInfo("es-ES");
             _currentDate = DateTime.Now;
             UpdateCalendar();
+            CargarViajeDelMes(DateTime.Now.Month, DateTime.Now.Year);
         }
 
         private void UpdateCalendar()
         {
+           
             // Actualizar título del mes
             MonthYearLabel.Text = _currentDate.ToString("MMMM yyyy", _culture).ToUpper();
 
@@ -79,6 +88,8 @@ namespace TravelTech.Views
                     Grid.SetColumn(frame, col);
                     Grid.SetRow(frame, row);
                     CalendarGrid.Children.Add(frame);
+
+                    
                 }
 
                 // Comprobar fechas de fin de viaje
@@ -122,6 +133,8 @@ namespace TravelTech.Views
             }
         }
 
+
+
         private List<T_Viaje> GetViajes()
         {
             using (SQLiteConnection conn = new SQLiteConnection(dbPath))
@@ -135,16 +148,127 @@ namespace TravelTech.Views
         {
             _currentDate = _currentDate.AddMonths(-1);
             UpdateCalendar();
+            CargarViajeDelMes(_currentDate.Month, _currentDate.Year);
         }
 
         private void OnNextMonthClicked(object sender, EventArgs e)
         {
             _currentDate = _currentDate.AddMonths(1);
             UpdateCalendar();
+                CargarViajeDelMes(_currentDate.Month, _currentDate.Year);
         }
 
 
+        
+        
+    
 
+
+
+// Método para cargar el viaje del mes
+private void CargarViajeDelMes(int mes, int año)
+        {
+            // Limpiar la lista antes de agregar nuevos elementos
+            ProximosViajesStack.Children.Clear();
+
+            using (SQLiteConnection conn = new SQLiteConnection(dbPath))
+            {
+                conn.CreateTable<T_Viaje>();
+
+                // Obtener todos los viajes de la base de datos
+                var viajes = conn.Table<T_Viaje>().ToList();
+
+                // Filtrar los viajes por mes y año
+                var viajesDelMes = viajes.Where(v =>
+                {
+                    DateTime fechaInicio;
+                    bool fechaValida = DateTime.TryParse(v.Fecha_inicio, out fechaInicio);
+                    return fechaValida && fechaInicio.Month == mes && fechaInicio.Year == año;  // Filtrar por mes y año
+                }).ToList();  // Obtener todos los viajes del mes
+
+                if (!viajesDelMes.Any())
+                {
+                    // Si no hay viajes para este mes, mostrar un mensaje
+                    ProximosViajesStack.Children.Add(new Label
+                    {
+                        Text = "No hay viajes programados para este mes.",
+                        TextColor = Color.Gray,
+                        FontAttributes = FontAttributes.Italic,
+                        HorizontalOptions = LayoutOptions.Center
+                    });
+                    return;
+                }
+
+                foreach (var viajeDelMes in viajesDelMes)
+                {
+                    DateTime fechaInicio = DateTime.Parse(viajeDelMes.Fecha_inicio);
+
+                    var frame = new Frame
+                    {
+                        Padding = 15,
+                        BackgroundColor = Color.White,
+                        CornerRadius = 10,
+                        HasShadow = true,
+                        Content = new Grid
+                        {
+                            ColumnDefinitions =
+                    {
+                        new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                    },
+                            Children =
+                    {
+                        new StackLayout
+                        {
+                            Children =
+                            {
+                                new Label { Text = viajeDelMes.nombre, FontAttributes = FontAttributes.Bold, FontSize = 18 },
+                                new Label { Text = $"Fecha de inicio: {fechaInicio.ToString("d MMMM, yyyy")}", TextColor = Color.Gray }
+                            }
+                        },
+                        new Button
+                        {
+                            Text = "Ver detalles",
+                            BackgroundColor = Color.FromHex("#2196F3"),
+                            TextColor = Color.White,
+                            CornerRadius = 20,
+                            HorizontalOptions = LayoutOptions.End,
+                            VerticalOptions = LayoutOptions.Center,
+                            Command = new Command(() => VerDetallesViaje(viajeDelMes.Id))
+                        }
+                    }
+                        }
+                    };
+
+                    // Agregar el Frame al StackLayout
+                    ProximosViajesStack.Children.Add(frame);
+                }
+            }
+        }
+
+        // Método para ver detalles del viaje
+        private async void VerDetallesViaje(int viajeId)
+        {
+            // Navegar a la página de detalles del viaje
+            await Navigation.PushAsync(new Viajes.Detalles(viajeId));
+        }
+
+        // Evento para el calendario
+        private void CalendarDateSelected(object sender, DateChangedEventArgs e)
+        {
+            // Obtener el mes y año de la fecha seleccionada
+            int mes = e.NewDate.Month;
+            int año = e.NewDate.Year;
+
+            // Cargar el viaje correspondiente al mes y año seleccionados
+            CargarViajeDelMes(mes, año);
+            var viajes = GetViajes();
+            var viajeSeleccionado = viajes.FirstOrDefault(v =>
+                DateTime.TryParse(v.Fecha_inicio, out DateTime startDate) &&
+                startDate.Date == e.NewDate.Date);
+
+        }
+
+ 
         // -- Navegación -- //
 
         //Evento btn_Home

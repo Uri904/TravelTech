@@ -21,7 +21,7 @@ namespace TravelTech
         public MainPage()
         {
             InitializeComponent();
-
+            
             // Crear la base de datos si no existe
             using (var db = new SQLiteConnection(dbPath))
             {
