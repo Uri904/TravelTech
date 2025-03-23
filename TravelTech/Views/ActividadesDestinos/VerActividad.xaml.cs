@@ -15,16 +15,16 @@ using SQLiteNetExtensions.Extensions;
 
 namespace TravelTech.Views.ActividadesDestinos
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class VerActividad : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class VerActividad : ContentPage
+    {
         private int _viajeId;
         private int actividadId;
         private string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TravelTech.db3");
 
-        public VerActividad (int viajeId)
-		{
-			InitializeComponent ();
+        public VerActividad(int viajeId)
+        {
+            InitializeComponent();
             _viajeId = viajeId;
 
             using (var db = new SQLiteConnection(dbPath))
@@ -36,13 +36,12 @@ namespace TravelTech.Views.ActividadesDestinos
                 db.CreateTable<T_Gasto>();
             }
 
-
         }
 
         // -- Navegación -- //
 
         //Evento del botón btn_VerDetalle
-       private async void btn_Detalles(object sender, System.EventArgs e)
+        private async void btn_Detalles(object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new Viajes.Detalles(_viajeId));
         }
@@ -71,16 +70,15 @@ namespace TravelTech.Views.ActividadesDestinos
             await Navigation.PushAsync(new MainPage());
         }
 
-       
+
 
         //Evento del botón btn_VerRecordatorios
         private async void btn_VerRecordatorios(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new Views.ActividadesDestinos.VerRecordatorios());
+            await Navigation.PushAsync(new Views.ActividadesDestinos.VerRecordatorios(_viajeId));
         }
 
 
-      
 
         protected override void OnAppearing()
         {
@@ -95,14 +93,14 @@ namespace TravelTech.Views.ActividadesDestinos
             {
                 using (SQLiteConnection conn = new SQLiteConnection(dbPath))
                 {
-                   
+
                     var actividades = conn.Table<T_Actividad>().Where(a => a.PK_id_viaje == _viajeId).ToList(); // para obtener todas las ACTIVIDADES
 
                     var actividadDisplay = new List<ActividadDisplayModel>();  // Lista con la información a mostrar
 
                     foreach (var actividad in actividades)
                     {
-                       
+
 
                         actividadDisplay.Add(new ActividadDisplayModel
                         {
@@ -111,11 +109,11 @@ namespace TravelTech.Views.ActividadesDestinos
                             Fecha_actividad = actividad.Fecha_actividad,
                             Estado = actividad.Estado,
                             nota = actividad.nota
-                            
+
                         });
                     }
 
-                    
+
                     listaActividades.ItemsSource = actividadDisplay;// Asignacion a Lista
                 }
             }
@@ -144,11 +142,10 @@ namespace TravelTech.Views.ActividadesDestinos
             Navigation.PushAsync(new Detalles(actividadId));
         }
 
-
         //MOSTRAR ACTIVIDADES
         private void ToggleActividad1(object sender, EventArgs e)
         {
-           
+
             var button = (Button)sender;
 
             var viewCell = (ViewCell)button.Parent.Parent.Parent;
@@ -157,11 +154,11 @@ namespace TravelTech.Views.ActividadesDestinos
 
             if (contentActividad != null)
             {
-               
+
                 contentActividad.IsVisible = !contentActividad.IsVisible;
                 var actividad = (ActividadDisplayModel)viewCell.BindingContext;
 
-                
+
                 button.Text = contentActividad.IsVisible ? $" ▲" : $" ▼"; // Actualizar botón
             }
             else
@@ -178,8 +175,6 @@ namespace TravelTech.Views.ActividadesDestinos
 
             await Navigation.PushAsync(new Views.ActividadesDestinos.ActualizarActividad(actividadId));
         }
-
-
 
         //ELIMINAR ACTIVIDAD
         private void btn_EliminarActividad(object sender, EventArgs e)
@@ -228,12 +223,6 @@ namespace TravelTech.Views.ActividadesDestinos
                 }
             });
         }
-
-
-
-
-
-
 
     }
 }

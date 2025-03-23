@@ -21,34 +21,38 @@
         <!-- Main Content -->
         <ScrollView Grid.Row="1" BackgroundColor="#F5F5F5">
             <StackLayout Padding="20,15" Spacing="15">
-                <Label Text="Actualizar recordatorio" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
+                <Label Text="Actualizar recordatorio" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" x:Name="lblTitulo"/>
 
                 <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
                     <StackLayout>
-                        <Label Text="Subir a la Torre Eiffel" FontSize="25" FontAttributes="Bold" TextColor="Black"/>
+                        <Label Text="{Binding Mensaje}" FontSize="25" FontAttributes="Bold" TextColor="Black"/>
                         <BoxView BackgroundColor="#000" HeightRequest="1"  Margin="0,0,0,20"/>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Importancia:" FontSize="16" TextColor="#000"/>
-                            <RadioButton Content="Alta" IsChecked="True"/>
-                            <RadioButton Content="Media"/>
-                            <RadioButton Content="Baja"/>
+                            <RadioButton Content="Alta" IsChecked="True" x:Name="RbAlta"/>
+                            <RadioButton Content="Media" x:Name="RbMedia"/>
+                            <RadioButton Content="Baja" x:Name="RbBaja"/>
                         </StackLayout>
 
                         <Label Text="Mensaje:" FontSize="16" TextColor="#000"/>
-                        <Entry Text="Preparar mochila." BackgroundColor="#EDEDED"/>
+                        <Entry  Placeholder="" PlaceholderColor="#CCCCCC" BackgroundColor="#EDEDED" x:Name="txMensaje" />
 
                         <Label Text="Fecha:" FontSize="16" TextColor="#000"/>
-                        <DatePicker BackgroundColor="#EDEDED" Date="01/08/2021"/>
+                        <DatePicker BackgroundColor="#EDEDED" Date="01/08/2021" x:Name="DpFecha"/>
 
                         <Label Text="Estado:" FontSize="16" TextColor="#000"/>
-                        <Entry Text="Completado" BackgroundColor="#EDEDED"/>
+                        <Picker Title="Selecciona el Estado" x:Name="pkEstado" >
+                            <Picker.Items>
+                                <x:String>Completado</x:String>
+                                <x:String>Pendiente</x:String>
+                            </Picker.Items>
+                        </Picker>
                     </StackLayout>
                 </Frame>
 
-                <!-- Botones de acción -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20" Margin="0,20,0,0">
                     <Button Text="Cancelar" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="20" HeightRequest="50" Clicked="btn_Cancelar"/>
-                    <Button Text="Actualizar" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="20" HeightRequest="50"/>
+                    <Button Text="Actualizar" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="20" HeightRequest="50" Clicked="Btn_Actualizar"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
