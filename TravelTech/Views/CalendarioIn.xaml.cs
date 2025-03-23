@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Xamarin.Forms;
+using SQLite;
+using System.IO;
+using TravelTech.Tablas;
 
 namespace TravelTech.Views
 {
@@ -8,6 +12,7 @@ namespace TravelTech.Views
     {
         private DateTime _currentDate;
         private CultureInfo _culture;
+        private string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "TravelTech.db3");
 
         public CalendarioIn()
         {
@@ -34,6 +39,9 @@ namespace TravelTech.Views
             int col = startingDay;
             int row = 0;
 
+            // Obtener los viajes desde la base de datos
+            List<T_Viaje> viajes = GetViajes();
+
             // Rellenar días vacíos antes del primer día del mes
             for (int day = 1; day <= daysInMonth; day++)
             {
@@ -45,12 +53,17 @@ namespace TravelTech.Views
                     Margin = 5
                 };
 
-                // Resaltar fechas específicas de los viajes
-                if (day == 1 || day == 19)
+                // Comprobar si la fecha de inicio o fin coincide con algún viaje
+                DateTime dayDate = new DateTime(_currentDate.Year, _currentDate.Month, day);
+
+                // Comprobar fechas de inicio de viaje
+                var viajeInicio = viajes.Find(v => DateTime.TryParse(v.Fecha_inicio, out DateTime startDate) && startDate.Date == dayDate.Date);
+                if (viajeInicio != null)
                 {
+                    // Resaltar fecha de inicio de viaje en verde
                     var frame = new Frame
                     {
-                        BackgroundColor = day == 1 ? Color.FromHex("#4CAF50") : Color.FromHex("#FF5722"),
+                        BackgroundColor = Color.FromHex("#4CAF50"), // Verde para inicio
                         CornerRadius = 15,
                         HeightRequest = 30,
                         WidthRequest = 30,
@@ -63,13 +76,38 @@ namespace TravelTech.Views
                             VerticalOptions = LayoutOptions.Center
                         }
                     };
+                    Grid.SetColumn(frame, col);
+                    Grid.SetRow(frame, row);
+                    CalendarGrid.Children.Add(frame);
+                }
 
+                // Comprobar fechas de fin de viaje
+                var viajeFin = viajes.Find(v => DateTime.TryParse(v.Fecha_fin, out DateTime endDate) && endDate.Date == dayDate.Date);
+                if (viajeFin != null)
+                {
+                    // Resaltar fecha de fin de viaje en rojo
+                    var frame = new Frame
+                    {
+                        BackgroundColor = Color.FromHex("#FF5722"), // Rojo para fin
+                        CornerRadius = 15,
+                        HeightRequest = 30,
+                        WidthRequest = 30,
+                        Padding = 0,
+                        Content = new Label
+                        {
+                            Text = day.ToString(),
+                            TextColor = Color.White,
+                            HorizontalOptions = LayoutOptions.Center,
+                            VerticalOptions = LayoutOptions.Center
+                        }
+                    };
                     Grid.SetColumn(frame, col);
                     Grid.SetRow(frame, row);
                     CalendarGrid.Children.Add(frame);
                 }
                 else
                 {
+                    // Si no es un día de viaje, agregar solo el día
                     Grid.SetColumn(dayLabel, col);
                     Grid.SetRow(dayLabel, row);
                     CalendarGrid.Children.Add(dayLabel);
@@ -81,6 +119,15 @@ namespace TravelTech.Views
                     col = 0;
                     row++;
                 }
+            }
+        }
+
+        private List<T_Viaje> GetViajes()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(dbPath))
+            {
+                // Obtener todos los viajes desde la base de datos
+                return conn.Table<T_Viaje>().ToList();
             }
         }
 

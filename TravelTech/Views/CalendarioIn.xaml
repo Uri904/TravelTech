@@ -52,7 +52,7 @@
                     FontAttributes="Bold"
                     FontSize="24"
                     Margin="0,5,0,10"
-                    Text="Mis recordatorios"
+                    Text="Mis viajes"
                     TextColor="Black" />
 
                 <!--  Calendar View  -->
@@ -179,7 +179,9 @@
                             BackgroundColor="#2196F3"
                             CornerRadius="20"
                             Text="Ver detalles"
-                            TextColor="White" />
+                            TextColor="White"
+
+                            />
                     </Grid>
                 </Frame>
             </StackLayout>
