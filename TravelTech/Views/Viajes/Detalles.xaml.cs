@@ -63,9 +63,10 @@ namespace TravelTech.Views.Viajes
         }
 
         // -- Navegación -- //
-        private async void btn_Home(object sender, System.EventArgs e)
+        private void btn_AbrirMenu(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            // Mostrar el menú lateral
+            (Application.Current.MainPage as FlyoutPage).IsPresented = true;
         }
 
         //Evento btn_Destino

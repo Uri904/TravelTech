@@ -95,10 +95,11 @@ namespace TravelTech.Views.Destinos
             await Navigation.PushAsync(new Gastos.VerGastos(_viajeId));
         }
 
-        // Evento del btn_Home
-        private async void btn_Home(object sender, System.EventArgs e)
+        // Evento del btn_AbrirMenu
+        private void btn_AbrirMenu(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            // Mostrar el menú lateral
+            (Application.Current.MainPage as FlyoutPage).IsPresented = true;
         }
 
         // Evento de los botones ToggleParis

@@ -25,7 +25,7 @@
                              BackgroundColor="Transparent"
                              WidthRequest="30"
                              HeightRequest="30"
-                             Clicked="btn_Home"/>
+                             Clicked="btn_AbrirMenu"/>
 
                 <Label Grid.Column="1"
                        FontAttributes="Bold"
@@ -130,7 +130,7 @@
         <Grid Grid.Row="2" BackgroundColor="#A5CAEF" ColumnDefinitions="*,Auto,*,*" HeightRequest="38" Padding="0,10">
 
             <ImageButton
-Source="hoja.png"
+Source="hojanegro.png"
 HeightRequest="40"
 WidthRequest="40"
 Grid.Column="0"
@@ -147,7 +147,7 @@ VerticalOptions="Center"/>
     WidthRequest="40"
     BackgroundColor="#A5CAEF"
     HorizontalOptions="Center"
-    Margin="5,4,5,5"
+    Margin="10,0,0,0"
     VerticalOptions="Center" />
             </Grid>
 
@@ -159,6 +159,7 @@ HeightRequest="45"
 WidthRequest="45"
 BackgroundColor="#A5CAEF"
 HorizontalOptions="Center"
+Margin="40,0,0,0"
 VerticalOptions="Center" />
 
             <ImageButton

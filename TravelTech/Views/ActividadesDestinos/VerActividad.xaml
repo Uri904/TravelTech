@@ -13,7 +13,7 @@
                              Source="barras.png"
                              BackgroundColor="Transparent"
                              WidthRequest="30"
-                             Clicked="btn_Home"
+                             Clicked="btn_AbrirMenu"
                              HeightRequest="30"/>
 
                 <Label Grid.Column="1"
@@ -123,17 +123,18 @@ Clicked="btn_Detalles" />
     WidthRequest="40"
     BackgroundColor="#A5CAEF"
     HorizontalOptions="Center"
-    Margin="5,4,5,5"
+    Margin="10,0,0,0"
     VerticalOptions="Center" />
             </Grid>
 
             <ImageButton
-Source="bici.png"
+Source="bicinegro.png"
 Grid.Column="2"
 HeightRequest="45"
 WidthRequest="45"
 BackgroundColor="#A5CAEF"
 HorizontalOptions="Center"
+Margin="40,0,0,0"
 VerticalOptions="Center" />
 
             <ImageButton

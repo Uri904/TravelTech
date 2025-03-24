@@ -107,6 +107,10 @@
     <AndroidResource Include="Resources\drawable\calendar.png" />
     <AndroidResource Include="Resources\drawable\pencil.png" />
     <AndroidResource Include="Resources\drawable\avionblanco.png" />
+    <AndroidResource Include="Resources\drawable\bicinegro.png" />
+    <AndroidResource Include="Resources\drawable\billetenegro.png" />
+    <AndroidResource Include="Resources\drawable\hojanegro.png" />
+    <AndroidResource Include="Resources\drawable\mapsnegro.png" />
     <Content Include="Resources\mipmap-anydpi-v26\icontravel.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\icontravel.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\icontravel.png" />

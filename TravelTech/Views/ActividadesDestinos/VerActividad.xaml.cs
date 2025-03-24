@@ -64,10 +64,11 @@ namespace TravelTech.Views.ActividadesDestinos
             await Navigation.PushAsync(new ActividadesDestinos.CrearActividad(_viajeId));
         }
 
-        //Evento del botón btn_Home
-        private async void btn_Home(object sender, System.EventArgs e)
+        // Evento del btn_AbrirMenu
+        private void btn_AbrirMenu(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            // Mostrar el menú lateral
+            (Application.Current.MainPage as FlyoutPage).IsPresented = true;
         }
 
 

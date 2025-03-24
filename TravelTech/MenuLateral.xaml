@@ -19,7 +19,7 @@
         <!-- Contenido principal del menú -->
         <ScrollView Grid.Row="0">
             <StackLayout Padding="20">
-                <Image Source="avion.png" 
+                <Image Source="avionblanco.png" 
                        HeightRequest="80" 
                        WidthRequest="80"
                        HorizontalOptions="Center"
@@ -51,7 +51,7 @@
                 <Frame Style="{StaticResource MenuItemStyle}">
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="avion.png" WidthRequest="25" HeightRequest="25"/>
+                            <Image Source="avionblanco.png" WidthRequest="25" HeightRequest="25"/>
                             <Label Text="Mis Viajes" 
                                    TextColor="Black" 
                                    FontSize="18" 

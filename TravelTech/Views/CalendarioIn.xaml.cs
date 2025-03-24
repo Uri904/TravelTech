@@ -7,7 +7,7 @@ using System.IO;
 using TravelTech.Tablas;
 using System.Linq;
 using Xamarin.Essentials;
-using UserNotifications;
+//using UserNotifications;
 
 
 
@@ -159,14 +159,9 @@ namespace TravelTech.Views
         }
 
 
-        
-        
-    
 
-
-
-// Método para cargar el viaje del mes
-private void CargarViajeDelMes(int mes, int año)
+        //Método para obtener los viajes del mes
+        private void CargarViajeDelMes(int mes, int año)
         {
             // Limpiar la lista antes de agregar nuevos elementos
             ProximosViajesStack.Children.Clear();
@@ -181,10 +176,12 @@ private void CargarViajeDelMes(int mes, int año)
                 // Filtrar los viajes por mes y año
                 var viajesDelMes = viajes.Where(v =>
                 {
-                    DateTime fechaInicio;
-                    bool fechaValida = DateTime.TryParse(v.Fecha_inicio, out fechaInicio);
-                    return fechaValida && fechaInicio.Month == mes && fechaInicio.Year == año;  // Filtrar por mes y año
-                }).ToList();  // Obtener todos los viajes del mes
+                    DateTime fechaInicio, fechaFin;
+                    bool fechaInicioValida = DateTime.TryParse(v.Fecha_inicio, out fechaInicio);
+                    bool fechaFinValida = DateTime.TryParse(v.Fecha_fin, out fechaFin);
+
+                    return fechaInicioValida && fechaInicio.Month == mes && fechaInicio.Year == año;
+                }).ToList();
 
                 if (!viajesDelMes.Any())
                 {
@@ -202,6 +199,7 @@ private void CargarViajeDelMes(int mes, int año)
                 foreach (var viajeDelMes in viajesDelMes)
                 {
                     DateTime fechaInicio = DateTime.Parse(viajeDelMes.Fecha_inicio);
+                    DateTime fechaFin = DateTime.Parse(viajeDelMes.Fecha_fin);
 
                     var frame = new Frame
                     {
@@ -222,7 +220,8 @@ private void CargarViajeDelMes(int mes, int año)
                             Children =
                             {
                                 new Label { Text = viajeDelMes.nombre, FontAttributes = FontAttributes.Bold, FontSize = 18 },
-                                new Label { Text = $"Fecha de inicio: {fechaInicio.ToString("d MMMM, yyyy")}", TextColor = Color.Gray }
+                                new Label { Text = $"Fecha de inicio: {fechaInicio.ToString("d MMMM, yyyy")}", TextColor = Color.Gray },
+                                new Label { Text = $"Fecha de fin: {fechaFin.ToString("d MMMM, yyyy")}", TextColor = Color.Gray }
                             }
                         },
                         new Button
@@ -244,6 +243,7 @@ private void CargarViajeDelMes(int mes, int año)
                 }
             }
         }
+
 
         // Método para ver detalles del viaje
         private async void VerDetallesViaje(int viajeId)
