@@ -165,7 +165,7 @@
                 BackgroundColor="Transparent"
                 HeightRequest="35"
                 HorizontalOptions="Center"
-                Source="casa.png"
+                Source="home.png"
                 VerticalOptions="Center"
                 WidthRequest="35" />
 

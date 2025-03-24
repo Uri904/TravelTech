@@ -203,7 +203,7 @@
                 BackgroundColor="Transparent"
                 HeightRequest="20"
                 Scale=".6"
-                Source="calendar.png"
+                Source="calendario.png"
                 WidthRequest="20" />
         </Grid>
     </Grid>

@@ -111,6 +111,8 @@
     <AndroidResource Include="Resources\drawable\billetenegro.png" />
     <AndroidResource Include="Resources\drawable\hojanegro.png" />
     <AndroidResource Include="Resources\drawable\mapsnegro.png" />
+    <AndroidResource Include="Resources\drawable\calendario.png" />
+    <AndroidResource Include="Resources\drawable\home.png" />
     <Content Include="Resources\mipmap-anydpi-v26\icontravel.xml" />
     <AndroidResource Include="Resources\mipmap-hdpi\icontravel.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\icontravel.png" />
