@@ -134,4 +134,22 @@
       <Name>TravelTech</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\avion.png" />
+    <EmbeddedResource Include="Resources\avionblanco.png" />
+    <EmbeddedResource Include="Resources\barras.png" />
+    <EmbeddedResource Include="Resources\basura.png" />
+    <EmbeddedResource Include="Resources\bici.png" />
+    <EmbeddedResource Include="Resources\bicinegro.png" />
+    <EmbeddedResource Include="Resources\billete.png" />
+    <EmbeddedResource Include="Resources\billetenegro.png" />
+    <EmbeddedResource Include="Resources\calendar.png" />
+    <EmbeddedResource Include="Resources\casa.png" />
+    <EmbeddedResource Include="Resources\flecha.png" />
+    <EmbeddedResource Include="Resources\hoja.png" />
+    <EmbeddedResource Include="Resources\hojanegro.png" />
+    <EmbeddedResource Include="Resources\maps.png" />
+    <EmbeddedResource Include="Resources\mapsnegro.png" />
+    <EmbeddedResource Include="Resources\pencil.png" />
+  </ItemGroup>
 </Project>
