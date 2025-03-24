@@ -12,12 +12,12 @@ using Android.Widget;
 
 using SQLite;
 using System.IO;
-using SQLIteBiblioteca.Droid;
-using SQLIteBiblioteca.Datos;
+using SQLIteBitDev.Droid;
+using SQLIteBitDev.Datos;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SQLiteDB))]
-namespace SQLIteBiblioteca.Droid
+namespace SQLIteBitDev.Droid
 {
     internal class SQLiteDB : ISQLiteDB
     {

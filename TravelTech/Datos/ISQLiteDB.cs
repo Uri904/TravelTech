@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 
-namespace SQLIteBiblioteca.Datos
+namespace SQLIteBitDev.Datos
 {
     public interface ISQLiteDB
     {
