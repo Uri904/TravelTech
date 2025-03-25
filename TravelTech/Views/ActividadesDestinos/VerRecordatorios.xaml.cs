@@ -141,15 +141,16 @@ namespace TravelTech.Views.ActividadesDestinos
             }
         }
 
-        //ELIMINAR ACTIVIDAD
+
+        // ELIMINAR RECORDATORIO
         private void Btn_Eliminar(object sender, EventArgs e)
         {
-            var button = (Button)sender;
+            var button = (ImageButton)sender; // CORREGIDO: Cambiar a ImageButton
 
             // Validar que el CommandParameter sea correcto
             if (button.CommandParameter == null || !(button.CommandParameter is int recordatorioId))
             {
-                DisplayAlert("Error", "No se pudo obtener el ID .", "OK");
+                DisplayAlert("Error", "No se pudo obtener el ID del recordatorio.", "OK");
                 return;
             }
 
@@ -165,12 +166,12 @@ namespace TravelTech.Views.ActividadesDestinos
                         {
                             conn.Execute("PRAGMA foreign_keys = ON;"); // Asegurar que las llaves foráneas estén activas
 
-                            // Verificar si la actividad existe
+                            // Verificar si el recordatorio existe
                             var recordatorio = conn.Find<T_Recordatorio>(recordatorioId);
                             if (recordatorio != null)
                             {
-                                conn.Delete(recordatorio, recursive: true);
-                                await DisplayAlert("Éxito", "Se elimino el recordatorio.", "OK");
+                                conn.Delete(recordatorio);
+                                await DisplayAlert("Éxito", "Se eliminó el recordatorio.", "OK");
                             }
                             else
                             {
@@ -183,11 +184,12 @@ namespace TravelTech.Views.ActividadesDestinos
                         await DisplayAlert("Error", $"ERROR al intentar eliminar el recordatorio: {ex.Message}", "OK");
                     }
 
-                    // Recargar actividades después de la eliminación
+                    // Recargar recordatorios después de la eliminación
                     CargarRecordatorios();
                 }
             });
         }
+
 
 
 

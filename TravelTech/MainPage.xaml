@@ -1,12 +1,11 @@
-﻿<!--  MainPage.xaml  -->
-<ContentPage
+﻿<ContentPage
     BackgroundColor="#F5F5F5"
     NavigationPage.HasNavigationBar="False"
     x:Class="TravelTech.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Grid RowDefinitions="Auto,*,60">
+    <Grid RowDefinitions="Auto,Auto,*,60">
 
         <!--  Barra Superior  -->
         <Frame
@@ -43,123 +42,114 @@
                     Source="avion.png"
                     WidthRequest="35" />
             </Grid>
-
         </Frame>
 
-        <!--  Main Content  -->
-        <ScrollView BackgroundColor="#F5F5F5" Grid.Row="1">
-            <StackLayout Padding="15,10" Spacing="15">
-                <!--  Title  -->
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="24"
-                    Margin="0,5,0,10"
-                    Text="Mis viajes"
-                    TextColor="Black" />
+        <!--  Título fijo -->
+        <Label
+            Grid.Row="1"
+            FontAttributes="Bold"
+            FontSize="24"
+            Margin="15,10"
+            Text="Mis viajes"
+            TextColor="Black" />
 
-                <!--  ListView de Viajes  -->
-                <ListView
-                    x:Name="listaViajes"
-                    HasUnevenRows="True"
-                    SelectionMode="None"
-                    SeparatorVisibility="None">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Frame
-                                    Padding="15"
-                                    BackgroundColor="White"
-                                    CornerRadius="5"
-                                    HasShadow="True"
-                                    Margin="0,0,0,15">
-                                    <StackLayout Spacing="10">
-                                        <Label
-                                            FontAttributes="Bold"
-                                            FontSize="18"
-                                            Text="{Binding nombre}"
-                                            TextColor="Black" />
-                                        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
-                                            <Label
-                                                Grid.Column="0"
-                                                FontAttributes="Bold"
-                                                Grid.Row="0"
-                                                Text="Fecha de inicio:"
-                                                TextColor="Black" />
-                                            <Label
-                                                Grid.Column="1"
-                                                Grid.Row="0"
-                                                Text="{Binding Fecha_inicio}"
-                                                TextColor="Black" />
+        <!--  ListView de Viajes con desplazamiento -->
+        <ListView
+            Grid.Row="2"
+            x:Name="listaViajes"
+            HasUnevenRows="True"
+            SelectionMode="None"
+            SeparatorVisibility="None"
+            Margin="15,0,15,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            Padding="15"
+                            BackgroundColor="White"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            Margin="0,0,0,15">
+                            <StackLayout Spacing="10">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    Text="{Binding nombre}"
+                                    TextColor="Black" />
+                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Text="Fecha de inicio:"
+                                        TextColor="Black" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Text="{Binding Fecha_inicio}"
+                                        TextColor="Black" />
 
-                                            <Label
-                                                Grid.Column="0"
-                                                FontAttributes="Bold"
-                                                Grid.Row="1"
-                                                Text="Presupuesto:"
-                                                TextColor="Black" />
-                                            <Label
-                                                Grid.Column="1"
-                                                Grid.Row="1"
-                                                Text="{Binding Presupuesto}"
-                                                TextColor="Black" />
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        Grid.Row="1"
+                                        Text="Presupuesto:"
+                                        TextColor="Black" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Text="{Binding Presupuesto}"
+                                        TextColor="Black" />
 
-                                            <Label
-                                                Grid.Column="0"
-                                                FontAttributes="Bold"
-                                                Grid.Row="2"
-                                                Text="Actividades:"
-                                                TextColor="Black" />
-                                            <Label
-                                                Grid.Column="1"
-                                                Grid.Row="2"
-                                                Text="{Binding ActividadesResumen}"
-                                                TextColor="Black" />
-                                        </Grid>
-                                        <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
-                                            <Button
-                                                Grid.Column="0"
-                                                BackgroundColor="#2A4B7C"
-                                                Clicked="btn_VerDetalles"
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        Grid.Row="2"
+                                        Text="Actividades:"
+                                        TextColor="Black" />
+                                    <Label
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        Text="{Binding ActividadesResumen}"
+                                        TextColor="Black" />
+                                </Grid>
+                                <Grid ColumnDefinitions="*,Auto" Margin="0,10,0,0">
+                                    <Button
+                                        Grid.Column="0"
+                                        BackgroundColor="#2A4B7C"
+                                        Clicked="btn_VerDetalles"
+                                        CommandParameter="{Binding Id}"
+                                        CornerRadius="5"
+                                        HeightRequest="40"
+                                        HorizontalOptions="Start"
+                                        Text="VER DETALLES"
+                                        TextColor="White" />
+
+                                    <Grid Grid.Column="1">
+                                        <Frame BackgroundColor="Red" CornerRadius="40">
+                                            <ImageButton
+                                                BackgroundColor="Transparent"
+                                                Clicked="btn_EliminarViaje"
                                                 CommandParameter="{Binding Id}"
-                                                CornerRadius="5"
-                                                HeightRequest="40"
-                                                HorizontalOptions="Start"
-                                                Text="VER DETALLES"
-                                                TextColor="White" />
+                                                HeightRequest="1"
+                                                Scale="14.5"
+                                                Source="basura.png"
+                                                WidthRequest="1" />
+                                        </Frame>
+                                    </Grid>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-                                            <Grid Grid.Column="1">
-                                                <Frame BackgroundColor="Red" CornerRadius="40">
-
-                                                    <!--  Imagen superpuesta al botón  -->
-                                                    <ImageButton
-                                                        BackgroundColor="Transparent"
-                                                        Clicked="btn_EliminarViaje"
-                                                        CommandParameter="{Binding Id}"
-                                                        HeightRequest="1"
-                                                        Scale="14.5"
-                                                        Source="basura.png"
-                                                        WidthRequest="1" />
-                                                </Frame>
-
-                                            </Grid>
-
-
-                                        </Grid>
-                                    </StackLayout>
-                                </Frame>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
-
-        <!--  Bottom Navigation Bar with Larger Circle Button  -->
+        <!--  Barra de Navegación Inferior  -->
         <Grid
             BackgroundColor="#A5CAEF"
             ColumnDefinitions="*,Auto,*"
-            Grid.Row="2">
-            <!--  Botón de Inicio  -->
+            Grid.Row="3">
             <ImageButton
                 Grid.Column="0"
                 BackgroundColor="Transparent"
@@ -169,12 +159,10 @@
                 VerticalOptions="Center"
                 WidthRequest="35" />
 
-            <!--  Contenedor para el botón flotante que sea más grande que la barra  -->
             <Grid
                 Grid.Column="1"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
-                <!--  El botón se coloca con un margen negativo para que sobresalga de la barra  -->
                 <Frame
                     Padding="0"
                     BackgroundColor="#214B81"
@@ -186,7 +174,6 @@
                     Margin="0,-20,0,0"
                     VerticalOptions="Center"
                     WidthRequest="60">
-
                     <Button
                         BackgroundColor="#214B81"
                         Clicked="btn_CrearViaje"
@@ -198,7 +185,6 @@
                         VerticalOptions="Center" />
                 </Frame>
             </Grid>
-
 
             <ImageButton
                 Grid.Column="2"

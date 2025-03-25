@@ -93,7 +93,7 @@
                     BorderColor="#DDDDDD"
                     CornerRadius="5"
                     HasShadow="False">
-                    <DatePicker x:Name="fechaFinDatePicker" IsEnabled="False" />
+                    <DatePicker x:Name="fechaFinDatePicker" IsEnabled="False" Visual="Material"/>
                 </Frame>
                 <Label
                     FontSize="16"
