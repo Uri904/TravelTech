@@ -41,8 +41,6 @@ namespace TravelTech.Views.ActividadesDestinos
                 db.CreateTable<T_Gasto>();
             }
 
-
-
         }
 
 

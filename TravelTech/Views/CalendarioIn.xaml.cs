@@ -32,7 +32,6 @@ namespace TravelTech.Views
 
         private void UpdateCalendar()
         {
-           
             // Actualizar título del mes
             MonthYearLabel.Text = _currentDate.ToString("MMMM yyyy", _culture).ToUpper();
 
@@ -65,14 +64,20 @@ namespace TravelTech.Views
                 // Comprobar si la fecha de inicio o fin coincide con algún viaje
                 DateTime dayDate = new DateTime(_currentDate.Year, _currentDate.Month, day);
 
-                // Comprobar fechas de inicio de viaje
-                var viajeInicio = viajes.Find(v => DateTime.TryParse(v.Fecha_inicio, out DateTime startDate) && startDate.Date == dayDate.Date);
-                if (viajeInicio != null)
+                // Buscar el viaje cuyo inicio o fin coincidan con la fecha
+                var viajeInicio = viajes.FirstOrDefault(v => DateTime.TryParse(v.Fecha_inicio, out DateTime startDate) && startDate.Date == dayDate.Date);
+                var viajeFin = viajes.FirstOrDefault(v => DateTime.TryParse(v.Fecha_fin, out DateTime endDate) && endDate.Date == dayDate.Date);
+
+                if (viajeInicio != null || viajeFin != null)
                 {
-                    // Resaltar fecha de inicio de viaje en verde
+                    var viaje = viajeInicio ?? viajeFin; // Usa el viaje de inicio si existe, o el de fin si no
+
+                    // Asignar color único para este viaje
+                    var viajeColor = GetViajeColor(viaje.Id);
+
                     var frame = new Frame
                     {
-                        BackgroundColor = Color.FromHex("#4CAF50"), // Verde para inicio
+                        BackgroundColor = viajeColor,
                         CornerRadius = 15,
                         HeightRequest = 30,
                         WidthRequest = 30,
@@ -85,33 +90,7 @@ namespace TravelTech.Views
                             VerticalOptions = LayoutOptions.Center
                         }
                     };
-                    Grid.SetColumn(frame, col);
-                    Grid.SetRow(frame, row);
-                    CalendarGrid.Children.Add(frame);
 
-                    
-                }
-
-                // Comprobar fechas de fin de viaje
-                var viajeFin = viajes.Find(v => DateTime.TryParse(v.Fecha_fin, out DateTime endDate) && endDate.Date == dayDate.Date);
-                if (viajeFin != null)
-                {
-                    // Resaltar fecha de fin de viaje en rojo
-                    var frame = new Frame
-                    {
-                        BackgroundColor = Color.FromHex("#FF5722"), // Rojo para fin
-                        CornerRadius = 15,
-                        HeightRequest = 30,
-                        WidthRequest = 30,
-                        Padding = 0,
-                        Content = new Label
-                        {
-                            Text = day.ToString(),
-                            TextColor = Color.White,
-                            HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.Center
-                        }
-                    };
                     Grid.SetColumn(frame, col);
                     Grid.SetRow(frame, row);
                     CalendarGrid.Children.Add(frame);
@@ -133,6 +112,87 @@ namespace TravelTech.Views
             }
         }
 
+
+        // Función para obtener un color único para cada fecha (por ejemplo, basado en el Id del viaje)
+        /* private Color GetColorForDate(DateTime date, List<T_Viaje> viajes)
+         {
+             // Encuentra todos los viajes que coincidan con la fecha
+             var viajesParaElDia = viajes.Where(v =>
+                 DateTime.TryParse(v.Fecha_inicio, out DateTime startDate) &&
+                 startDate.Date == date.Date).ToList();
+
+             // Si no hay viajes para esa fecha, usar un color neutro
+             if (!viajesParaElDia.Any())
+             {
+                 return Color.Gray;
+             }
+
+             // Si hay viajes para esa fecha, asignar un color basado en el Id del viaje
+             var viaje = viajesParaElDia.First();
+             int viajeId = viaje.Id;
+
+             // Generar un color único (puedes ajustar esto a tu gusto)
+             Random random = new Random(viajeId);
+             return Color.FromRgb(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
+         }*/
+
+
+
+        //Lista de colores para asociar fechas del calendatio con Viajes
+        private List<Color> viajeColors = new List<Color>
+{
+    Color.FromHex("#FF6347"), // Tomato
+    Color.FromHex("#4682B4"), // SteelBlue
+    Color.FromHex("#32CD32"), // LimeGreen
+    Color.FromHex("#FFD700"), // Gold
+    Color.FromHex("#8A2BE2"), // BlueViolet
+    Color.FromHex("#FF4500"), // OrangeRed
+    Color.FromHex("#2E8B57"), // SeaGreen
+    Color.FromHex("#6A5ACD"), // SlateBlue
+    Color.FromHex("#00CED1"), // DarkTurquoise
+    Color.FromHex("#FF1493"), // DeepPink
+    Color.FromHex("#F08080"), // LightCoral
+    Color.FromHex("#8B4513"), // SaddleBrown
+    Color.FromHex("#ADFF2F"), // GreenYellow
+    Color.FromHex("#B22222"), // Firebrick
+    Color.FromHex("#7FFF00"), // Chartreuse
+    Color.FromHex("#DC143C"), // Crimson
+    Color.FromHex("#00BFFF"), // DeepSkyBlue
+    Color.FromHex("#9400D3"), // DarkViolet
+    Color.FromHex("#FF8C00"), // DarkOrange
+    Color.FromHex("#4B0082"), // Indigo
+    Color.FromHex("#8B0000"), // DarkRed
+    Color.FromHex("#DAA520"), // GoldenRod
+    Color.FromHex("#E0FFFF"), // LightCyan
+    Color.FromHex("#FA8072"), // Salmon
+    Color.FromHex("#FF69B4"), // HotPink
+    Color.FromHex("#20B2AA"), // LightSeaGreen
+    Color.FromHex("#D2691E"), // Chocolate
+    Color.FromHex("#A52A2A"), // Brown
+    Color.FromHex("#9ACD32"), // YellowGreen
+    Color.FromHex("#FFB6C1"), // LightPink
+    Color.FromHex("#BDB76B"), // DarkKhaki
+    Color.FromHex("#F0E68C"), // Khaki
+    Color.FromHex("#3CB371"), // MediumSeaGreen
+    Color.FromHex("#FF00FF"), // Magenta
+    Color.FromHex("#D3D3D3"), // LightGray
+    Color.FromHex("#C71585"), // MediumVioletRed
+    Color.FromHex("#F4A300"), // Mustard
+    Color.FromHex("#7B68EE"), // MediumSlateBlue
+    Color.FromHex("#32CD32"), // LimeGreen
+    Color.FromHex("#FF7F50"), // Coral
+    Color.FromHex("#800080"), // Purple
+    Color.FromHex("#48D1CC"), // MediumTurquoise
+    Color.FromHex("#C0C0C0"), // Silver
+    Color.FromHex("#B0C4DE"), // LightSteelBlue
+};
+
+
+        private Color GetViajeColor(int viajeId)
+        {
+            // Obtener color único basado en el Id del viaje
+            return viajeColors[viajeId % viajeColors.Count];  // Si el Id supera el número de colores, se repiten los colores
+        }
 
 
         private List<T_Viaje> GetViajes()
@@ -201,6 +261,9 @@ namespace TravelTech.Views
                     DateTime fechaInicio = DateTime.Parse(viajeDelMes.Fecha_inicio);
                     DateTime fechaFin = DateTime.Parse(viajeDelMes.Fecha_fin);
 
+                    // Obtener el color único para este viaje
+                    var viajeColor = GetViajeColor(viajeDelMes.Id);
+
                     var frame = new Frame
                     {
                         Padding = 15,
@@ -227,7 +290,7 @@ namespace TravelTech.Views
                         new Button
                         {
                             Text = "Ver detalles",
-                            BackgroundColor = Color.FromHex("#2196F3"),
+                            BackgroundColor = viajeColor, // Usar el mismo color que en el calendario
                             TextColor = Color.White,
                             CornerRadius = 20,
                             HorizontalOptions = LayoutOptions.End,
@@ -243,6 +306,8 @@ namespace TravelTech.Views
                 }
             }
         }
+
+
 
 
         // Método para ver detalles del viaje

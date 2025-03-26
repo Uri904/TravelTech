@@ -38,6 +38,15 @@
                 <!-- Title -->
                 <Label Text="Recordatorios" TextColor="Black" FontSize="24" FontAttributes="Bold" Margin="0,5,0,15" />
 
+                <!-- Aquí agregamos el Label que mostrará el mensaje -->
+                <Label x:Name="labelNoRecordatorios"
+                       Text="Aún no hay recordatorios."
+                       TextColor="Black"
+                       FontSize="18"
+                       IsVisible="False" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="CenterAndExpand"/>
+
                 <ListView
                     x:Name="listaRecordatorios"
                     HasUnevenRows="True"

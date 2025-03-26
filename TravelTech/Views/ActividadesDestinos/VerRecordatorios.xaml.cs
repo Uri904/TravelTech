@@ -12,6 +12,7 @@ using SQLite;
 using System.IO;
 using SQLiteNetExtensions.Extensions;
 using static TravelTech.Views.ActividadesDestinos.VerActividad;
+//using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace TravelTech.Views.ActividadesDestinos
 {
@@ -117,22 +118,34 @@ namespace TravelTech.Views.ActividadesDestinos
                                             .Where(r => r.FK_id_viaje == _viajeId) // Filtramos por viaje
                                             .ToList();
 
-                    var recordatorioDisplay = new List<RecordatorioDisplayModel>();
-
-                    foreach (var recordatorio in recordatorios)
+                    // Verificamos si hay recordatorios
+                    if (recordatorios.Count == 0)
                     {
-                        recordatorioDisplay.Add(new RecordatorioDisplayModel
-                        {
-                            Id = recordatorio.Id,
-                            Fecha_recordatorio = recordatorio.Fecha_recordatorio,
-                            Mensaje = recordatorio.Mensaje,
-                            estado = recordatorio.estado,
-                            importancia = recordatorio.importancia
-                        });
+                        labelNoRecordatorios.IsVisible = true; // Muestra el mensaje de que no hay recordatorios
+                        listaRecordatorios.IsVisible = false; // Oculta la lista de recordatorios
                     }
+                    else
+                    {
+                        labelNoRecordatorios.IsVisible = false; // Oculta el mensaje
+                        listaRecordatorios.IsVisible = true; // Muestra la lista de recordatorios
 
-                    // Asignamos los recordatorios a la lista
-                    listaRecordatorios.ItemsSource = recordatorioDisplay;
+                        var recordatorioDisplay = new List<RecordatorioDisplayModel>();
+
+                        foreach (var recordatorio in recordatorios)
+                        {
+                            recordatorioDisplay.Add(new RecordatorioDisplayModel
+                            {
+                                Id = recordatorio.Id,
+                                Fecha_recordatorio = recordatorio.Fecha_recordatorio,
+                                Mensaje = recordatorio.Mensaje,
+                                estado = recordatorio.estado,
+                                importancia = recordatorio.importancia
+                            });
+                        }
+
+                        // Asignamos los recordatorios a la lista
+                        listaRecordatorios.ItemsSource = recordatorioDisplay;
+                    }
                 }
             }
             catch (Exception ex)
@@ -141,7 +154,7 @@ namespace TravelTech.Views.ActividadesDestinos
             }
         }
 
-        //ELIMINAR ACTIVIDAD
+        //ELIMINAR 
         private void Btn_Eliminar(object sender, EventArgs e)
         {
             var button = (Button)sender;
@@ -165,7 +178,7 @@ namespace TravelTech.Views.ActividadesDestinos
                         {
                             conn.Execute("PRAGMA foreign_keys = ON;"); // Asegurar que las llaves foráneas estén activas
 
-                            // Verificar si la actividad existe
+                            // Verificar si el recordatorio existe
                             var recordatorio = conn.Find<T_Recordatorio>(recordatorioId);
                             if (recordatorio != null)
                             {
@@ -183,7 +196,7 @@ namespace TravelTech.Views.ActividadesDestinos
                         await DisplayAlert("Error", $"ERROR al intentar eliminar el recordatorio: {ex.Message}", "OK");
                     }
 
-                    // Recargar actividades después de la eliminación
+                    // Recargar recordatorios después de la eliminación
                     CargarRecordatorios();
                 }
             });

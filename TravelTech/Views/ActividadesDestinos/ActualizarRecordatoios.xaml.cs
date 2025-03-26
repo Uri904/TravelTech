@@ -31,8 +31,6 @@ namespace TravelTech.Views.ActividadesDestinos
         }
 
 
-        
-
 
         private void CargarInfRecordatorios()
         {
@@ -92,9 +90,6 @@ namespace TravelTech.Views.ActividadesDestinos
                     await DisplayAlert("Error", "Ingresa un nombre", "OK");
                     return;
                 }
-               
-
-
 
                 using (SQLiteConnection conn = new SQLiteConnection(dbPath))
                 {
