@@ -118,6 +118,7 @@ namespace TravelTech.Views.ActividadesDestinos
                                             .Where(r => r.FK_id_viaje == _viajeId) // Filtramos por viaje
                                             .ToList();
 
+
                     // Verificamos si hay recordatorios
                     if (recordatorios.Count == 0)
                     {
