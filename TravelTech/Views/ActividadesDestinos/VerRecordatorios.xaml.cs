@@ -12,6 +12,7 @@ using SQLite;
 using System.IO;
 using SQLiteNetExtensions.Extensions;
 using static TravelTech.Views.ActividadesDestinos.VerActividad;
+using Xamarin.Essentials;
 //using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace TravelTech.Views.ActividadesDestinos
@@ -202,6 +203,11 @@ namespace TravelTech.Views.ActividadesDestinos
                 }
             });
         }
+
+
+
+
+        
 
 
 

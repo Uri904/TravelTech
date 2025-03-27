@@ -7,6 +7,7 @@ using System.IO;
 using TravelTech.Tablas;
 using System.Linq;
 using Xamarin.Essentials;
+using System.Threading.Tasks;
 //using UserNotifications;
 
 
@@ -49,6 +50,13 @@ namespace TravelTech.Views
 
             // Obtener los viajes desde la base de datos
             List<T_Viaje> viajes = GetViajes();
+
+            // Verificar si algún viaje comienza hoy y enviar el mensaje de WhatsApp
+            foreach (var viaje in viajes)
+            {
+                DateTime fechaInicio = DateTime.Parse(viaje.Fecha_inicio);
+                EnviarMensajeWhatsApp(fechaInicio, viaje.nombre);
+            }
 
             // Rellenar días vacíos antes del primer día del mes
             for (int day = 1; day <= daysInMonth; day++)
@@ -359,6 +367,63 @@ namespace TravelTech.Views
             // Mostrar el menú lateral
             (Application.Current.MainPage as FlyoutPage).IsPresented = true;
         }
+
+
+        private async void EnviarMensajeWhatsApp(DateTime fechaInicio, string viajeNombre)
+        {
+            DateTime fechaHoy = DateTime.Now;
+
+            // Verificar si la fecha de inicio es hoy
+            if (fechaInicio.Date == fechaHoy.Date)
+            {
+                var phoneNumber = "5584116500"; // Aquí va el número de teléfono
+                var message = $"¡Hola! Hoy comienza tu viaje: {viajeNombre}.";
+
+                try
+                {
+                    // Asegurarse de que el texto esté correctamente codificado para URL
+                    var encodedMessage = Uri.EscapeDataString(message);
+                    var encodedPhoneNumber = Uri.EscapeDataString(phoneNumber);
+
+                    // Crear el URI de WhatsApp
+                    var uri = new Uri($"whatsapp://send?phone={encodedPhoneNumber}&text={encodedMessage}");
+
+                    // Verificar si WhatsApp está instalado
+                    var whatsappInstalled = await CanOpenWhatsApp();
+
+                    if (whatsappInstalled)
+                    {
+                        // Intentar abrir WhatsApp con el URI
+                        await Launcher.OpenAsync(uri);
+                        await DisplayAlert("Mensaje enviado", "El mensaje de WhatsApp fue enviado.", "OK");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", "WhatsApp no está instalado en este dispositivo.", "OK");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"No se pudo enviar el mensaje: {ex.Message}", "OK");
+                }
+            }
+        }
+
+        // Método para verificar si WhatsApp está instalado
+        private async Task<bool> CanOpenWhatsApp()
+        {
+            try
+            {
+                var uri = new Uri("whatsapp://");
+                return await Launcher.CanOpenAsync(uri);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
 
     }
 }
