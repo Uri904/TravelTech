@@ -176,10 +176,10 @@ namespace TravelTech.Views.ActividadesDestinos
             await Navigation.PushAsync(new Views.ActividadesDestinos.ActualizarActividad(actividadId));
         }
 
-        //ELIMINAR ACTIVIDAD
+        // ELIMINAR ACTIVIDAD
         private void btn_EliminarActividad(object sender, EventArgs e)
         {
-            var button = (Button)sender;
+            var button = (ImageButton)sender; // CORREGIDO: Cambiar a ImageButton
 
             // Validar que el CommandParameter sea correcto
             if (button.CommandParameter == null || !(button.CommandParameter is int actividadId))
@@ -204,7 +204,7 @@ namespace TravelTech.Views.ActividadesDestinos
                             var actividad = conn.Find<T_Actividad>(actividadId);
                             if (actividad != null)
                             {
-                                conn.Delete(actividad, recursive: true);
+                                conn.Delete(actividad);
                                 await DisplayAlert("Éxito", "Actividad eliminada correctamente.", "OK");
                             }
                             else
@@ -223,6 +223,7 @@ namespace TravelTech.Views.ActividadesDestinos
                 }
             });
         }
+
 
     }
 }

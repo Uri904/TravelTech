@@ -90,12 +90,21 @@
 
 
                                             <StackLayout Orientation="Horizontal" Spacing="10">
-                                                <Button Text="Editar campos ✏" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" 
+                                                <Button Text="Editar campos" BackgroundColor="#A3E4D7" TextColor="Black" CornerRadius="5" 
                                                         CommandParameter="{Binding Id}"
                                                         Clicked="BtnEditar"/>
-                                                <Button Text="🗑" BackgroundColor="#E74C3C" TextColor="White" CornerRadius="5"
-                                                        CommandParameter="{Binding Id}"  Clicked="Btn_Eliminar"
-                                                        />
+
+                                                <Frame BackgroundColor="Red" CornerRadius="50">
+                                                    <ImageButton
+                                                     BackgroundColor="Transparent"
+                                                     Clicked="Btn_Eliminar"
+                                                     CommandParameter="{Binding Id}"
+                                                     HeightRequest="1"
+                                                     Scale="14.5"
+                                                     Source="basura.png"
+                                                     WidthRequest="1" />
+                                                </Frame>
+
                                             </StackLayout>
                                         </StackLayout>
                                     </StackLayout>
