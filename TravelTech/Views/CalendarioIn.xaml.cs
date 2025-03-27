@@ -379,51 +379,12 @@ namespace TravelTech.Views
                 var phoneNumber = "5584116500"; // Aquí va el número de teléfono
                 var message = $"¡Hola! Hoy comienza tu viaje: {viajeNombre}.";
 
-                try
-                {
-                    // Asegurarse de que el texto esté correctamente codificado para URL
-                    var encodedMessage = Uri.EscapeDataString(message);
-                    var encodedPhoneNumber = Uri.EscapeDataString(phoneNumber);
+               var link =  $"https://wa.me/{phoneNumber}?text-{Uri.EscapeDataString(message)}";
 
-                    // Crear el URI de WhatsApp
-                    var uri = new Uri($"whatsapp://send?phone={encodedPhoneNumber}&text={encodedMessage}");
-
-                    // Verificar si WhatsApp está instalado
-                    var whatsappInstalled = await CanOpenWhatsApp();
-
-                    if (whatsappInstalled)
-                    {
-                        // Intentar abrir WhatsApp con el URI
-                        await Launcher.OpenAsync(uri);
-                        await DisplayAlert("Mensaje enviado", "El mensaje de WhatsApp fue enviado.", "OK");
-                    }
-                    else
-                    {
-                        await DisplayAlert("Error", "WhatsApp no está instalado en este dispositivo.", "OK");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("Error", $"No se pudo enviar el mensaje: {ex.Message}", "OK");
-                }
+                await Launcher.OpenAsync(new Uri(link));
             }
         }
 
-        // Método para verificar si WhatsApp está instalado
-        private async Task<bool> CanOpenWhatsApp()
-        {
-            try
-            {
-                var uri = new Uri("whatsapp://");
-                return await Launcher.CanOpenAsync(uri);
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-
-
+ 
     }
 }
