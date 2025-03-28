@@ -55,7 +55,6 @@ namespace TravelTech.Views
             foreach (var viaje in viajes)
             {
                 DateTime fechaInicio = DateTime.Parse(viaje.Fecha_inicio);
-                EnviarMensajeWhatsApp(fechaInicio, viaje.nombre);
             }
 
             // Rellenar días vacíos antes del primer día del mes
@@ -366,23 +365,6 @@ namespace TravelTech.Views
         {
             // Mostrar el menú lateral
             (Application.Current.MainPage as FlyoutPage).IsPresented = true;
-        }
-
-
-        private async void EnviarMensajeWhatsApp(DateTime fechaInicio, string viajeNombre)
-        {
-            DateTime fechaHoy = DateTime.Now;
-
-            // Verificar si la fecha de inicio es hoy
-            if (fechaInicio.Date == fechaHoy.Date)
-            {
-                var phoneNumber = "5584116500"; // Aquí va el número de teléfono
-                var message = $"¡Hola! Hoy comienza tu viaje: {viajeNombre}.";
-
-               var link =  $"https://wa.me/{phoneNumber}?text-{Uri.EscapeDataString(message)}";
-
-                await Launcher.OpenAsync(new Uri(link));
-            }
         }
 
  
