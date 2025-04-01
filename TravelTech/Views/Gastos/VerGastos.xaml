@@ -55,7 +55,7 @@
                                     <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
                                         <StackLayout Grid.Row="0" Grid.Column="0">
                                             <Label Text="{Binding Categoria}" FontSize="16" TextColor="Black"/>
-                                            <Label Text="{Binding Fecha_gasto}" FontSize="14" TextColor="Gray"/>
+                                            <Label Text="{Binding Fecha_gasto, StringFormat='{0:dd/MM/yyyy}'}" FontSize="14" TextColor="Gray"/>
                                         </StackLayout>
                                         
                                         <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Spacing="12">

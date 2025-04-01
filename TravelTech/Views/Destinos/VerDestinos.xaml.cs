@@ -146,26 +146,24 @@ namespace TravelTech.Views.Destinos
 
         private void btn_EliminarDestino(object sender, EventArgs e)
         {
-            var button = (Button)sender;
+            var button = (ImageButton)sender; // Se cambia a ImageButton
             var destinoId = (int)button.CommandParameter;
 
-            // Confirmar y eliminar
             Device.BeginInvokeOnMainThread(async () =>
             {
-                bool confirmar = await DisplayAlert("Confirmar", "¿Estás seguro de eliminar este viaje?", "Sí", "No");
+                bool confirmar = await DisplayAlert("Confirmar", "¿Estás seguro de eliminar este destino?", "Sí", "No");
                 if (confirmar)
                 {
                     using (SQLiteConnection conn = new SQLiteConnection(dbPath))
                     {
-
-                        //ELIMINAR el viaje
                         conn.Delete<T_Destino>(destinoId);
                     }
 
-                    // Recargar viajes
+                    // Recargar destinos
                     CargarDestinos();
                 }
             });
         }
+
     }
 }
